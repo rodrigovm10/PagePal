@@ -5,8 +5,8 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 
-import { LoginSchema } from '@/schemas'
-import { login } from '@/server-actions/login'
+import { RegisterSchema } from '@/schemas'
+import { register } from '@/server-actions/register'
 
 import {
   Form,
@@ -22,25 +22,27 @@ import { FormError } from '@/components/auth/form-error'
 import { CardWrapper } from '@/components/auth/card-wrapper'
 import { FormSuccess } from './form-success'
 
-export function LoginForm() {
+export function RegisterForm() {
   const [error, setError] = useState<string | undefined>('')
   const [success, setSuccess] = useState<string | undefined>('')
-  const form = useForm<z.infer<typeof LoginSchema>>({
-    resolver: zodResolver(LoginSchema),
+  const form = useForm<z.infer<typeof RegisterSchema>>({
+    resolver: zodResolver(RegisterSchema),
     defaultValues: {
       email: '',
-      password: ''
+      password: '',
+      avatar: '',
+      name: ''
     }
   })
 
-  const handleSubmit = (values: z.infer<typeof LoginSchema>) => {
-    login({ values })
+  const handleSubmit = (values: z.infer<typeof RegisterSchema>) => {
+    register({ values })
   }
   return (
     <CardWrapper
-      headerLabel='Bienvenido de vuelta'
-      backButtonHref='/auth/register'
-      backButtonLabel='¿No tienes cuenta?'
+      headerLabel='Unete a PagePal'
+      backButtonHref='/auth/login'
+      backButtonLabel='¿Ya tienes cuenta?'
       showSocial
     >
       <Form {...form}>
@@ -49,6 +51,23 @@ export function LoginForm() {
           className='space-y-8'
         >
           <div className='space-y-5'>
+            <FormField
+              control={form.control}
+              name='name'
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Nombre de usuario</FormLabel>
+                  <FormControl>
+                    <Input
+                      {...field}
+                      placeholder='John '
+                      type='text'
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
             <FormField
               control={form.control}
               name='email'

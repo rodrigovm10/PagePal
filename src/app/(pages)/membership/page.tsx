@@ -1,3 +1,3 @@
-export default function MembershipPage(){
+export default function MembershipPage() {
   return <div>MemberShip</div>
 }

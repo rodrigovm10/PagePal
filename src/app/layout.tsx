@@ -3,6 +3,7 @@ import { Onest } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from '@/components/providers/theme-provider'
 import { NavBar } from '@/components/nav-bar'
+import { cn } from '@/libs/utils'
 
 const font = Onest({ subsets: ['latin'], weight: ['400', '500', '600', '700'] })
 
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en'>
-      <body className={font.className}>
+      <body className={cn('scroll-smooth', font.className)}>
         <ThemeProvider
           attribute='class'
           defaultTheme='dark'
@@ -22,6 +23,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           storageKey='pagepal-theme'
         >
           <NavBar />
+
           {children}
         </ThemeProvider>
       </body>

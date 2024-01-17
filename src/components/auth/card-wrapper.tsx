@@ -19,7 +19,7 @@ export function CardWrapper({
   showSocial
 }: CardWrapperProps) {
   return (
-    <Card className='w-[400px] shadow-md'>
+    <article className='w-[400px]'>
       <CardHeader>
         <Header label={headerLabel} />
       </CardHeader>
@@ -35,6 +35,6 @@ export function CardWrapper({
           href={backButtonHref}
         />
       </CardFooter>
-    </Card>
+    </article>
   )
 }

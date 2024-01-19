@@ -1,11 +1,20 @@
-import { Main } from '@/components/home/main'
-import { Header } from '@/components/home/header'
+import { auth } from '@/server/auth/auth'
 
-export default function HomePage() {
+import { Main } from '@client/components/home/main'
+import { Header } from '@client/components/home/header'
+
+export default async function HomePage() {
+  const session = await auth()
+
   return (
     <>
-      <Header />
-      <Main />
+      {session && <div>hola</div>}
+      {!session && (
+        <>
+          <Header />
+          <Main />
+        </>
+      )}
     </>
   )
 }

@@ -1,9 +1,9 @@
-import type { Metadata } from 'next'
-import { Onest } from 'next/font/google'
 import './globals.css'
-import { ThemeProvider } from '@/components/providers/theme-provider'
-import { NavBar } from '@/components/nav-bar'
-import { cn } from '@/libs/utils'
+import type { Metadata } from 'next'
+import { cn } from '@client/libs/utils'
+import { Onest } from 'next/font/google'
+import { NavBar } from '@client/components/nav-bar'
+import { ThemeProvider } from '@client/components/providers/theme-provider'
 
 const font = Onest({ subsets: ['latin'], weight: ['400', '500', '600', '700'] })
 
@@ -23,7 +23,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           storageKey='pagepal-theme'
         >
           <NavBar />
-
           {children}
         </ThemeProvider>
       </body>

@@ -1,20 +1,26 @@
-import { Button } from '@client/components/ui/button'
+import Image from 'next/image'
 
-export function Header() {
+import { Button } from '@client/components/ui/button'
+import hero from '@/assets/hero.webp'
+
+export function Hero() {
   return (
-    <header className='bg-primary/40 dark:bg-primary/80 h-[350px] '>
+    <section
+      className='h-[350px] flex justify-between bg-gradient-to-b from-white via-white to-primary/40
+ dark:bg-gradient-to-b dark:from-black dark:to-[#111] border-b'
+    >
       <div
         className='
           flex flex-col
           text-center space-y-7 px-0
           lg:text-left
-          lg:py-10 lg:px-40 
+          lg:py-10 lg:px-36
           '
       >
         <h1
           className='
           font-bold text-4xl pt-10
-          lg:pt-0 lg:text-6xl 
+          lg:pt-0 lg:text-6xl
           md:text-5xl'
         >
           Cuenta historias.
@@ -34,6 +40,14 @@ export function Header() {
           Empezar a leer
         </Button>
       </div>
-    </header>
+      <div>
+        <Image
+          width={500}
+          height={500}
+          src={hero}
+          alt='hero'
+        />
+      </div>
+    </section>
   )
 }

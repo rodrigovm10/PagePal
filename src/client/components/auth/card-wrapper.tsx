@@ -1,4 +1,4 @@
-import { Card, CardContent, CardFooter, CardHeader } from '@client/components/ui/card'
+import { CardContent, CardFooter, CardHeader } from '@client/components/ui/card'
 import { Header } from './header'
 import { Social } from './social'
 import { BackButton } from './back-button'
@@ -24,7 +24,7 @@ export function CardWrapper({
         <Header label={headerLabel} />
       </CardHeader>
       <CardContent>{children}</CardContent>
-      {showSocial && (
+      {showSocial !== null && (
         <CardFooter>
           <Social />
         </CardFooter>

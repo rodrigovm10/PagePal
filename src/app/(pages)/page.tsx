@@ -1,17 +1,17 @@
 import { auth } from '@/server/auth/auth'
 
 import { Main } from '@client/components/home/main'
-import { Header } from '@client/components/home/header'
+import { Hero } from '@/client/components/home/hero'
 
 export default async function HomePage() {
   const session = await auth()
 
   return (
     <>
-      {session && <div>hola</div>}
-      {!session && (
+      {session !== null && <div className=''>{JSON.stringify(session)}</div>}
+      {session === null && (
         <>
-          <Header />
+          <Hero />
           <Main />
         </>
       )}

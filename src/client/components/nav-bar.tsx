@@ -5,5 +5,5 @@ import { auth } from '@/server/auth/auth'
 export async function NavBar() {
   const session = await auth()
 
-  return <>{session ? <NavBarWtSession /> : <NavBarWSession />}</>
+  return <>{session !== null ? <NavBarWtSession /> : <NavBarWSession />}</>
 }

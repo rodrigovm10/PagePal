@@ -1,9 +1,9 @@
 'use server'
 
 import type * as z from 'zod'
-import bcrypt from 'bcryptjs'
 
 import { db } from '@/server/db/db'
+import { hashPassword } from '../libs/bcrypt'
 import { RegisterSchema } from '@/client/schemas'
 
 export const register = async ({ values }: { values: z.infer<typeof RegisterSchema> }) => {
@@ -13,7 +13,7 @@ export const register = async ({ values }: { values: z.infer<typeof RegisterSche
 
   const { email, name, password } = validateFields.data
 
-  const hashedPassword = await bcrypt.hash(password, 10)
+  const hashedPassword = await hashPassword({ password })
 
   const existingUser = await db.user.findUnique({
     where: { email }

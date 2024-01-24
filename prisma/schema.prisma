@@ -11,7 +11,7 @@ datasource db {
   directUrl = env("DIRECT_URL")
 }
 
-enum Role {
+enum UserRole {
   DEFAULT
   PREMIUM
 }
@@ -22,8 +22,8 @@ model User {
   emailVerified DateTime?
   password      String
   image         String?
+  role          UserRole @default(DEFAULT)
   accounts      Account[]
-  role          Role @default(DEFAULT)
 }
 
 model Account {

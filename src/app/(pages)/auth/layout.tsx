@@ -1,12 +1,15 @@
 import Image from 'next/image'
 
-import loginImg from '@/assets/login-img.jpg'
+import loginImg from '@/assets/login-img.webp'
 import { Card, CardContent } from '@client/components/ui/card'
 
 export default async function AuthLayout({ children }: { children: React.ReactNode }) {
   return (
-    <main className='flex items-center justify-center h-full bg-primary/15 dark:bg-background'>
-      <Card className='w-[80%] mx-auto sm:w-auto'>
+    <main className='flex items-center justify-center h-full -mt-2 bg-gradient-to-b from-white via-white to-primary/40'>
+      <Card
+        className='w-[80%] mx-auto sm:w-auto shadow-lg bg-gradient-to-b from-white via-white to-primary/40
+ dark:bg-gradient-to-b dark:from-black dark:to-[#111]'
+      >
         <CardContent className='flex p-5 lg:p-20 gap-x-10'>
           {children}
           <Image

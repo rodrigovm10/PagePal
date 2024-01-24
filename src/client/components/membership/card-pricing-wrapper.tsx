@@ -1,29 +1,47 @@
+import { cn } from '@/client/libs/utils'
+import { Button } from '@client/components/ui/button'
 import { Header } from '@client/components/membership/header'
 import { Card, CardContent, CardFooter, CardHeader } from '@client/components/ui/card'
-import { Button } from '@client/components/ui/button'
 
 interface CardWrapperProps {
   children: React.ReactNode
   headerLabel: string
   title: string
   showButton: boolean
+  showPopular: boolean
 }
 
-export function CardPricingWrapper({ children, headerLabel, title, showButton }: CardWrapperProps) {
+export function CardPricingWrapper({
+  children,
+  headerLabel,
+  title,
+  showButton,
+  showPopular
+}: CardWrapperProps) {
   return (
-    <Card className='w-[300px] md:w-[500px] lg:w-[400px] shadow-lg hover:-translate-y-3 transition-transform hover:border-t-4 hover:border-ring dark:hover:border-ring'>
-      <CardHeader>
-        <Header
-          label={headerLabel}
-          title={title}
-        />
-      </CardHeader>
-      <CardContent>{children}</CardContent>
-      {showButton && (
-        <CardFooter className='flex justify-center mt-5'>
-          <Button>Comprar</Button>
-        </CardFooter>
+    <div className='hover:-translate-y-3 '>
+      {showPopular && (
+        <div className='text-center bg-rose-500 rounded-t-md p-2 uppercase '>Popular</div>
       )}
-    </Card>
+      <Card
+        className={cn(
+          'w-[350px] md:w-[500px] lg:w-[400px] shadow-lg dark:shadow-2xl',
+          showPopular && 'rounded-t-none'
+        )}
+      >
+        <CardHeader>
+          <Header
+            label={headerLabel}
+            title={title}
+          />
+        </CardHeader>
+        <CardContent>{children}</CardContent>
+        {showButton && (
+          <CardFooter className='flex justify-center mt-5'>
+            <Button>Comprar</Button>
+          </CardFooter>
+        )}
+      </Card>
+    </div>
   )
 }

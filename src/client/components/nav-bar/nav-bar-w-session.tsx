@@ -1,63 +1,56 @@
 'use client'
 
+import { cn } from '@client/libs/utils'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { cn } from '@client/libs/utils'
+
 import { ModeToggle } from '@client/components/mode-toggle'
+import { LINKS } from '@client/constants'
 
 export function NavBarWSession() {
   const pathname = usePathname()
 
   return (
     <>
-      <nav
+      <header
         className='
-      flex justify-between pt-5 bg-primary border-b-[1px] border-black py-3 px-20 fixed w-full z-10
-      
-      lg:px-40
+     sticky top-0 z-50 w-full border-b border-border bg-background backdrop-blur-sm supports-[backdrop-filter]:bg-background/60
       '
       >
-        <h1 className='font-bold text-3xl'>
-          <Link href='/'>PagePal</Link>
-        </h1>
-        <ul className='flex justify-between gap-x-5 items-center text-white'>
-          <li>
+        <nav className='flex justify-between px-20 py-3 lg:40px z-50'>
+          <h1 className='font-bold text-3xl'>
             <Link
-              href='/membership'
-              className='underline-offset-4 opacity-80 hover:opacity-100 hover:underline transition-all'
+              href='/'
+              // className={cn(
+              //   'opacity-60 hover:opacity-100 transition-all',
+              //   pathname === '/membership' && 'opacity-100 text-green-200 font-bold '
+              // )}
             >
-              Membresía
+              PagePal
             </Link>
-          </li>
-          <li>
-            <Link
-              href='/auth/login'
-              className='underline-offset-4 opacity-80 hover:opacity-100 hover:underline transition-all'
-            >
-              Inicia sesión
-            </Link>
-          </li>
-          <li>
-            <Link
-              href='/auth/register'
-              className='bg-black text-white rounded-full hover:bg-black/80 h-10 px-4 py-2'
-            >
-              Registrate
-            </Link>
-          </li>
-          <li className='self-start'>
-            <ModeToggle />
-          </li>
-        </ul>
-      </nav>
-      <div
-        className={cn(
-          'h-32 bg-primary/40 dark:bg-primary/80',
-          pathname === '/auth/login' && 'bg-primary/15 h-[19.5px]',
-          pathname === '/auth/register' && 'bg-primary/15 h-16',
-          pathname === '/membership' && ' dark:bg-background bg-background'
-        )}
-      ></div>
+          </h1>
+
+          <ul className='flex justify-between gap-x-5 items-center font-thin '>
+            {LINKS.map((link, i) => {
+              return (
+                <Link
+                  key={i}
+                  href={link.href}
+                  className={cn(
+                    'opacity-60 hover:opacity-100 transition-all',
+                    pathname === `${link.href}` && 'opacity-100 text-primary'
+                  )}
+                >
+                  {link.name}
+                </Link>
+              )
+            })}
+            <li className='self-start'>
+              <ModeToggle />
+            </li>
+          </ul>
+        </nav>
+      </header>
     </>
   )
 }

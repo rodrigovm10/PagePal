@@ -1,5 +1,7 @@
 import { CardArticle } from '@client/components/home/card-article'
 import { Button } from '@client/components/ui/button'
+import { Carousel, CarouselItem, CarouselNext, CarouselPrevious } from '../ui/carousel'
+import { CarouselCategories } from '../carousel'
 
 export function Main() {
   const arr = ['Deportes', 'Programación', 'Motivación', 'Matemáticas', 'Física']
@@ -25,15 +27,7 @@ export function Main() {
           Algunos temas que pueden interesarte
         </p>
         <section className='grid grid-cols-3 gap-5'>
-          {arr.map((item, i) => (
-            <Button
-              key={i}
-              variant='tag'
-              className='w-full'
-            >
-              {item}
-            </Button>
-          ))}
+          <CarouselCategories arr={arr} />
         </section>
       </aside>
     </main>

@@ -1,21 +1,17 @@
+// Import missing parts and fix syntax errors
 'use client'
-
 import * as React from 'react'
-import useEmblaCarousel, {
-  type EmblaCarouselType as CarouselApi,
-  type EmblaOptionsType as CarouselOptions,
-  type EmblaPluginType as CarouselPlugin
-} from 'embla-carousel-react'
+import useEmblaCarousel, { type EmblaOptionsType, type EmblaPluginType } from 'embla-carousel-react'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 
 import { cn } from '@client/libs/utils'
 import { Button } from '@client/components/ui/button'
 
-type CarouselProps = {
-  opts?: CarouselOptions
-  plugins?: CarouselPlugin[]
+interface CarouselProps {
+  opts?: EmblaOptionsType
+  plugins?: EmblaPluginType[]
   orientation?: 'horizontal' | 'vertical'
-  setApi?: (api: CarouselApi) => void
+  setApi?: (api: any) => void // Replace with the actual type of your CarouselApi
 }
 
 type CarouselContextProps = {
@@ -53,7 +49,7 @@ const Carousel = React.forwardRef<
   const [canScrollPrev, setCanScrollPrev] = React.useState(false)
   const [canScrollNext, setCanScrollNext] = React.useState(false)
 
-  const onSelect = React.useCallback((api: CarouselApi) => {
+  const onSelect = React.useCallback(api => {
     if (!api) {
       return
     }
@@ -109,7 +105,7 @@ const Carousel = React.forwardRef<
     <CarouselContext.Provider
       value={{
         carouselRef,
-        api: api,
+        api: api!,
         opts,
         orientation: orientation || (opts?.axis === 'y' ? 'vertical' : 'horizontal'),
         scrollPrev,

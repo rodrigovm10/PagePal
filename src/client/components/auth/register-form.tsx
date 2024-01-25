@@ -22,7 +22,7 @@ export function RegisterForm() {
   return (
     <CardWrapper
       headerLabel='Unete a PagePal'
-      backButtonHref='/auth/login'
+      backButtonHref='/login'
       backButtonLabel='¿Ya tienes cuenta?'
       showSocial
     >

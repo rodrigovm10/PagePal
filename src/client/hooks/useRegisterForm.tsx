@@ -1,8 +1,7 @@
-import * as z from 'zod'
-import { useState } from 'react'
+import type * as z from 'zod'
 import { useForm } from 'react-hook-form'
+import { useState, useTransition } from 'react'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useTransition } from 'react'
 
 import { RegisterSchema } from '@/client/schemas'
 import { register } from '@server/server-actions/register'

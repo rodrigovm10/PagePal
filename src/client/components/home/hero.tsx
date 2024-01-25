@@ -2,6 +2,7 @@ import Image from 'next/image'
 
 import { Button } from '@client/components/ui/button'
 import hero from '@/assets/hero.webp'
+import { TextWavy } from '../text-wavy'
 
 export function Hero() {
   return (
@@ -23,7 +24,11 @@ export function Hero() {
           lg:pt-0 lg:text-6xl
           md:text-5xl'
         >
-          Cuenta historias.
+          Cuenta{' '}
+          <TextWavy
+            text='historias.'
+            isWavy={false}
+          />
         </h1>
         <h2
           className='

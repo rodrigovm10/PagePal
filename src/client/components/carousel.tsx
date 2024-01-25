@@ -8,7 +8,7 @@ import {
   CarouselPrevious
 } from '@client/components/ui/carousel'
 
-export function CarouselCategories({ arr }: { arr: String[] }) {
+export function CarouselCategories({ arr }: { arr: string[] }) {
   return (
     <Carousel
       className='w-full lg:max-w-lg md:max-w-md max-w-sm'

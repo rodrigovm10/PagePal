@@ -1,25 +1,41 @@
 import { CardArticle } from '@client/components/home/card-article'
-import { CarouselCategories } from '@client/components/carousel'
+import { Button } from '@client/components/ui/button'
 
 export function Main() {
   const arr = ['Deportes', 'Programación', 'Motivación', 'Matemáticas', 'Física']
 
   return (
-    <main className='w-full my-0 mx-auto overflow-x-hidden pb-4'>
-      <section>
+    <main className='my-0 mx-auto pb-4 grid grid-cols-2 w-[80%]'>
+      <section className='flex flex-col mx-10 lg:mx-0 gap-y-5 mt-10'>
+        <CardArticle />
+        <CardArticle />
+        <CardArticle />
+        <CardArticle />
+        <CardArticle />
+        <CardArticle />
+        <CardArticle />
+        <CardArticle />
+        <CardArticle />
+        <CardArticle />
+        <CardArticle />
+        <CardArticle />
+      </section>
+      <aside className='sticky inline-block border bottom-0 border-rose-500'>
         <p className='text-2xl text-center font-medium my-10'>
           Algunos temas que pueden interesarte
         </p>
-        <section className='flex justify-center mt-2 flex-nowrap'>
-          <CarouselCategories arr={arr} />
+        <section className='grid grid-cols-3 gap-5'>
+          {arr.map((item, i) => (
+            <Button
+              key={i}
+              variant='tag'
+              className='w-full'
+            >
+              {item}
+            </Button>
+          ))}
         </section>
-      </section>
-      <main className='flex flex-col items-center justify-center mx-10 lg:mx-0 gap-y-5 mt-10'>
-        <CardArticle />
-        <CardArticle />
-        <CardArticle />
-        <CardArticle />
-      </main>
+      </aside>
     </main>
   )
 }

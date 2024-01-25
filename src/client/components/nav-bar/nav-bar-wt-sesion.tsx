@@ -29,7 +29,7 @@ export function NavBarWtSession() {
           </li>
           <li>
             <Link
-              href='/auth/register'
+              href='/register'
               className='bg-black text-white rounded-full hover:bg-black/80 h-10 px-4 py-2'
             >
               Registrate

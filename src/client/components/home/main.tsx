@@ -1,6 +1,4 @@
 import { CardArticle } from '@client/components/home/card-article'
-import { Button } from '@client/components/ui/button'
-import { Carousel, CarouselItem, CarouselNext, CarouselPrevious } from '../ui/carousel'
 import { CarouselCategories } from '../carousel'
 
 export function Main() {

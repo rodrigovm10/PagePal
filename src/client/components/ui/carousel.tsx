@@ -1,17 +1,22 @@
-// Import missing parts and fix syntax errors
 'use client'
+
 import * as React from 'react'
-import useEmblaCarousel, { type EmblaOptionsType, type EmblaPluginType } from 'embla-carousel-react'
+import useEmblaCarousel, { type UseEmblaCarouselType } from 'embla-carousel-react'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 
-import { cn } from '@client/libs/utils'
-import { Button } from '@client/components/ui/button'
+import { cn } from '@/client/libs/utils'
+import { Button } from '@/client/components/ui/button'
 
-interface CarouselProps {
-  opts?: EmblaOptionsType
-  plugins?: EmblaPluginType[]
+type CarouselApi = UseEmblaCarouselType[1]
+type UseCarouselParameters = Parameters<typeof useEmblaCarousel>
+type CarouselOptions = UseCarouselParameters[0]
+type CarouselPlugin = UseCarouselParameters[1]
+
+type CarouselProps = {
+  opts?: CarouselOptions
+  plugins?: CarouselPlugin
   orientation?: 'horizontal' | 'vertical'
-  setApi?: (api: any) => void // Replace with the actual type of your CarouselApi
+  setApi?: (api: CarouselApi) => void
 }
 
 type CarouselContextProps = {
@@ -49,7 +54,7 @@ const Carousel = React.forwardRef<
   const [canScrollPrev, setCanScrollPrev] = React.useState(false)
   const [canScrollNext, setCanScrollNext] = React.useState(false)
 
-  const onSelect = React.useCallback(api => {
+  const onSelect = React.useCallback((api: CarouselApi) => {
     if (!api) {
       return
     }
@@ -105,7 +110,7 @@ const Carousel = React.forwardRef<
     <CarouselContext.Provider
       value={{
         carouselRef,
-        api: api!,
+        api: api,
         opts,
         orientation: orientation || (opts?.axis === 'y' ? 'vertical' : 'horizontal'),
         scrollPrev,

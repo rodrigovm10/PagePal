@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { Button } from '@client/components/ui/button'
 import hero from '@/assets/hero.webp'
 import { TextWavy } from '../text-wavy'
+import Link from 'next/link'
 
 export function Hero() {
   return (
@@ -42,7 +43,7 @@ export function Hero() {
           size='lg'
           className='rounded-full max-w-full w-fit self-center lg:self-auto text-lg '
         >
-          Empezar a leer
+          <Link href='#start-read'>Empezar a leer</Link>
         </Button>
       </div>
       <div>

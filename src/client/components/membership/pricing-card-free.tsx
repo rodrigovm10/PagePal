@@ -5,13 +5,15 @@ import { CardPricingWrapper } from '@client/components/membership/card-pricing-w
 export function PricingCardFree() {
   return (
     <CardPricingWrapper
-      headerLabel='$0'
-      title='Plan gratis'
-      showButton={false}
+      headerLabel='0 /usuario'
+      title='Plan gratuito'
+      showButton={true}
+      textButton={'Registrate'}
       showPopular={false}
+      firstCard
     >
       <main>
-        <ul>
+        <ul className='space-y-3'>
           <li className='flex gap-x-2'>
             <FaCheckCircle className='text-emerald-500 size-4 my-auto' /> Leer 3 historias diarias
           </li>

@@ -5,13 +5,15 @@ import { CardPricingWrapper } from '@client/components/membership/card-pricing-w
 export function PricingCardAnually() {
   return (
     <CardPricingWrapper
-      headerLabel='$662.5/anual'
+      headerLabel='662.5 /usuario/anual'
       title='Miembro de PagePal anual'
+      textButton={'Inicia ahora'}
       showButton={true}
       showPopular={true}
+      threeCard
     >
       <main>
-        <ul>
+        <ul className='space-y-3'>
           <li className='flex gap-x-2'>
             <FaCheckCircle className='text-emerald-500 size-4 my-auto' /> Todos los beneficios de un
             miembro de PagePal

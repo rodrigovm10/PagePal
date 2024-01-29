@@ -1,11 +1,13 @@
 import { CardArticle } from '@client/components/home/card-article'
-import { CarouselCategories } from '../carousel'
+import { CATEGORIES_RECOMMENDED } from '@/client/constants'
+import Link from 'next/link'
 
 export function Main() {
-  const arr = ['Deportes', 'Programación', 'Motivación', 'Matemáticas', 'Física']
-
   return (
-    <main className='my-0 mx-auto pb-4 grid grid-cols-2 w-[80%]'>
+    <main
+      className='w-[85vw] lg:w-[75vw] mx-auto pb-4 grid grid-cols-2 gap-x-5 relative h-full'
+      id='start-read'
+    >
       <section className='flex flex-col mx-10 lg:mx-0 gap-y-5 mt-10'>
         <CardArticle />
         <CardArticle />
@@ -20,13 +22,23 @@ export function Main() {
         <CardArticle />
         <CardArticle />
       </section>
-      <aside className='sticky inline-block border bottom-0 border-rose-500'>
-        <p className='text-2xl text-center font-medium my-10'>
-          Algunos temas que pueden interesarte
-        </p>
-        <section className='grid grid-cols-3 gap-5'>
-          <CarouselCategories arr={arr} />
-        </section>
+      <aside>
+        <div className='sticky top-16'>
+          <p className='text-2xl text-center font-medium my-10'>
+            Algunos temas que pueden interesarte
+          </p>
+          <section className='grid grid-cols-3 gap-5'>
+            {CATEGORIES_RECOMMENDED.map((category, i) => (
+              <Link
+                href='2'
+                key={i}
+                className='bg-primary p-2 text-white text-center'
+              >
+                {category}
+              </Link>
+            ))}
+          </section>
+        </div>
       </aside>
     </main>
   )

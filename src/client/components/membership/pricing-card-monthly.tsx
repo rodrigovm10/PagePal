@@ -4,17 +4,15 @@ import { FaCheckCircle } from 'react-icons/fa'
 export function PricingCardMonthly() {
   return (
     <CardPricingWrapper
-      headerLabel='$69/mensual'
+      headerLabel='69 /usuario/mensual'
       title='Miembro de PagePal'
       showButton={true}
+      textButton={'Inicia ahora'}
       showPopular={false}
+      twoCard
     >
       <main>
-        <ul>
-          <li className='flex gap-x-2'>
-            <FaCheckCircle className='text-emerald-500 size-4 my-auto' /> Todos los beneficios del
-            plan gratis
-          </li>
+        <ul className='space-y-3'>
           <li className='flex gap-x-2'>
             <FaCheckCircle className='text-emerald-500 size-4 my-auto' />
             Leer historias de miembros
@@ -30,6 +28,10 @@ export function PricingCardMonthly() {
           <li className='flex gap-x-2'>
             <FaCheckCircle className='text-emerald-500 size-4 my-auto' />
             Una insignia que te diferencia del plan gratis
+          </li>
+          <li className='flex gap-x-2'>
+            <FaCheckCircle className='text-emerald-500 size-4 my-auto' />
+            Acceso ilimitado a historias en favoritos
           </li>
         </ul>
       </main>

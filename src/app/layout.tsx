@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en'>
-      <body className={cn('scroll-smooth dark:bg-black', font.className)}>
+      <body className={cn('scroll-smooth dark:bg-black h-full', font.className)}>
         <ThemeProvider
           attribute='class'
           defaultTheme='dark'

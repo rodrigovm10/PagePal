@@ -9,7 +9,7 @@ export function NavBarFooter() {
   return (
     <>
       <header>
-        <nav className='flex flex-col md:flex-row justify-center md:justify-between items-center md:items-start px-20 py-3 lg:px-[40px] z-50'>
+        <nav className='flex flex-col lg:flex-row justify-center lg:justify-between items-center lg:items-start px-20 py-3 lg:px-[40px] z-50'>
           <h1 className='font-bold text-3xl text-center mb-5'>
             <Link href='/'>PagePal</Link>
           </h1>

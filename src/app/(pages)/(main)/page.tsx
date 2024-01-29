@@ -12,8 +12,6 @@ export default async function HomePage() {
       {session === null && (
         <>
           <Hero />
-          <h1 className='text-center my-5'>Descubre algún tema interesante.</h1>
-
           <Main />
         </>
       )}

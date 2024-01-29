@@ -10,3 +10,11 @@ export const LINKS_FOOTER = [
   { href: '/', name: 'Términos y condiciones' },
   { href: '/about-us', name: 'Sobre nosotros' }
 ]
+
+export const CATEGORIES_RECOMMENDED = [
+  'Deportes',
+  'Programación',
+  'Motivación',
+  'Matemáticas',
+  'Física'
+]

@@ -8,40 +8,55 @@ interface CardWrapperProps {
   headerLabel: string
   title: string
   showButton: boolean
+  textButton: string
   showPopular: boolean
+  firstCard?: boolean
+  twoCard?: boolean
+  threeCard?: boolean
 }
 
 export function CardPricingWrapper({
   children,
   headerLabel,
   title,
+  textButton,
   showButton,
-  showPopular
+  showPopular,
+  firstCard = false,
+  twoCard = false,
+  threeCard = false
 }: CardWrapperProps) {
   return (
-    <div className='hover:-translate-y-3 '>
-      {showPopular && (
-        <div className='text-center bg-rose-500 rounded-t-md p-2 uppercase '>Popular</div>
+    <Card
+      className={cn(
+        'w-[350px] md:w-[500px] lg:w-[400px] dark:bg-black/80 rounded-sm border-none',
+        showPopular && 'dark:bg-primary'
       )}
-      <Card
-        className={cn(
-          'w-[350px] md:w-[500px] lg:w-[400px] shadow-lg dark:shadow-2xl',
-          showPopular && 'rounded-t-none'
+    >
+      <CardHeader>
+        {showPopular && (
+          <p className='bg-primary dark:bg-white dark:text-black shadow-custom text-white w-fit p-1 uppercase text-[12px] inline-block -rotate-2 font-black'>
+            Popular
+          </p>
         )}
-      >
-        <CardHeader>
-          <Header
-            label={headerLabel}
-            title={title}
-          />
-        </CardHeader>
-        <CardContent>{children}</CardContent>
-        {showButton && (
-          <CardFooter className='flex justify-center mt-5'>
-            <Button>Comprar</Button>
-          </CardFooter>
-        )}
-      </Card>
-    </div>
+        <Header
+          label={headerLabel}
+          title={title}
+        />
+      </CardHeader>
+      <CardContent>{children}</CardContent>
+      {showButton && (
+        <CardFooter className='flex justify-center mt-5'>
+          <Button
+            className={cn(
+              'dark:text-white w-full hover:-translate-y-2 transition-all ',
+              showPopular && 'dark:text-dark dark:bg-white'
+            )}
+          >
+            {textButton}
+          </Button>
+        </CardFooter>
+      )}
+    </Card>
   )
 }

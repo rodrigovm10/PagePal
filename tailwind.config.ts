@@ -30,6 +30,9 @@ const config = {
       // => @media (min-width: 1280px) { ... }
     },
     extend: {
+      boxShadow: {
+        custom: '7px 7px 5px -3px rgba(0,0,0,0.75)'
+      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',

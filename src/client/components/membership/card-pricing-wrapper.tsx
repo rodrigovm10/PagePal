@@ -1,18 +1,14 @@
 import { cn } from '@/client/libs/utils'
+
 import { Button } from '@client/components/ui/button'
 import { Header } from '@client/components/membership/header'
 import { Card, CardContent, CardFooter, CardHeader } from '@client/components/ui/card'
-
 interface CardWrapperProps {
   children: React.ReactNode
   headerLabel: string
   title: string
-  showButton: boolean
   textButton: string
-  showPopular: boolean
-  firstCard?: boolean
-  twoCard?: boolean
-  threeCard?: boolean
+  showPopular?: boolean
 }
 
 export function CardPricingWrapper({
@@ -20,11 +16,7 @@ export function CardPricingWrapper({
   headerLabel,
   title,
   textButton,
-  showButton,
-  showPopular,
-  firstCard = false,
-  twoCard = false,
-  threeCard = false
+  showPopular = false
 }: CardWrapperProps) {
   return (
     <Card
@@ -35,7 +27,7 @@ export function CardPricingWrapper({
     >
       <CardHeader>
         {showPopular && (
-          <p className='bg-primary dark:bg-white dark:text-black shadow-custom text-white w-fit p-1 uppercase text-[12px] inline-block -rotate-2 font-black'>
+          <p className='bg-primary dark:bg-white dark:text-black shadow-custom text-white w-fit p-1 uppercase text-[12px] inline-block -rotate-2 font-black animate-pulse'>
             Popular
           </p>
         )}
@@ -45,18 +37,16 @@ export function CardPricingWrapper({
         />
       </CardHeader>
       <CardContent>{children}</CardContent>
-      {showButton && (
-        <CardFooter className='flex justify-center mt-5'>
-          <Button
-            className={cn(
-              'dark:text-white w-full hover:-translate-y-2 transition-all ',
-              showPopular && 'dark:text-dark dark:bg-white'
-            )}
-          >
-            {textButton}
-          </Button>
-        </CardFooter>
-      )}
+      <CardFooter className='flex justify-center mt-5'>
+        <Button
+          className={cn(
+            'dark:text-white w-full hover:-translate-y-2 transition-all ',
+            showPopular && 'dark:text-dark dark:bg-white'
+          )}
+        >
+          {textButton}
+        </Button>
+      </CardFooter>
     </Card>
   )
 }

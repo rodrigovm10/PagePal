@@ -7,10 +7,7 @@ export function PricingCardFree() {
     <CardPricingWrapper
       headerLabel='0 /usuario'
       title='Plan gratuito'
-      showButton={true}
       textButton={'Registrate'}
-      showPopular={false}
-      firstCard
     >
       <main>
         <ul className='space-y-3'>

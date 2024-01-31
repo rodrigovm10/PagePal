@@ -8,9 +8,7 @@ export function PricingCardAnually() {
       headerLabel='662.5 /usuario/anual'
       title='Miembro de PagePal anual'
       textButton={'Inicia ahora'}
-      showButton={true}
-      showPopular={true}
-      threeCard
+      showPopular
     >
       <main>
         <ul className='space-y-3'>
@@ -24,7 +22,7 @@ export function PricingCardAnually() {
           </li>
           <li className='flex gap-x-2 items-start'>
             <FaCheckCircle className='text-emerald-500 size-4 my-auto' />
-            Un solo pago
+            Un solo pago al año
           </li>
         </ul>
       </main>

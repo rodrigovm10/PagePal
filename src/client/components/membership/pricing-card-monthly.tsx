@@ -6,10 +6,7 @@ export function PricingCardMonthly() {
     <CardPricingWrapper
       headerLabel='69 /usuario/mensual'
       title='Miembro de PagePal'
-      showButton={true}
       textButton={'Inicia ahora'}
-      showPopular={false}
-      twoCard
     >
       <main>
         <ul className='space-y-3'>

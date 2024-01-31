@@ -1,3 +1,5 @@
+import { SkeletonLoginForm } from '@/client/components/skeletons/login-form-skeleton'
+
 export default function Loading() {
-  return <div className='text-2xl'>cargando...</div>
+  return <SkeletonLoginForm />
 }

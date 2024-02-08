@@ -11,19 +11,20 @@ export const {
   signIn,
   signOut
 } = NextAuth({
+  pages: {
+    signIn: '/login',
+    error: '/error'
+  },
+  events: {
+    async linkAccount({ user }) {
+      await db.user.update({
+        where: { id: user.id },
+        data: { emailVerified: new Date() }
+      })
+    }
+  },
   callbacks: {
-    async signIn({ user }) {
-      const existingUser = await getUserById({ id: user.id })
-
-      if (existingUser !== undefined) {
-        if (existingUser !== undefined || existingUser.emailVerified !== null) {
-          return false
-        }
-      }
-
-      return true
-    },
-    async session({ session, token }) {
+    async session({ token, session }) {
       if (session.user === null) return
 
       if (token.sub !== undefined && session.user !== undefined) {
@@ -37,9 +38,7 @@ export const {
       return session
     },
     async jwt({ token }) {
-      if (token === null) {
-        return token
-      }
+      if (token === null) return token
 
       const user = await getUserById({ id: token.sub })
 

@@ -1,6 +1,7 @@
 'use client'
 
 import { useLoginForm } from '@/client/hooks/useLoginForm'
+import { useSearchParams } from 'next/navigation'
 
 import {
   Form,
@@ -18,6 +19,11 @@ import { CardWrapper } from '@client/components/auth/card-wrapper'
 
 export function LoginForm() {
   const { form, handleSubmit, error, isPending, success } = useLoginForm()
+  const searchParams = useSearchParams()
+  const urlError =
+    searchParams.get('error') === 'OAuthAccountNotLinked'
+      ? 'El correo esta en uso con un proveedor distinto'
+      : ''
 
   return (
     <CardWrapper
@@ -70,7 +76,7 @@ export function LoginForm() {
             />
           </div>
           <FormSuccess message={success} />
-          <FormError message={error} />
+          <FormError message={error !== '' || urlError !== ''} />
           <Button
             type='submit'
             className='w-full'

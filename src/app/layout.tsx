@@ -18,8 +18,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={cn('scroll-smooth dark:bg-black h-full', font.className)}>
         <ThemeProvider
           attribute='class'
-          defaultTheme='dark'
-          enableSystem={false}
+          defaultTheme='system'
+          enableSystem
+          disableTransitionOnChange
           storageKey='pagepal-theme'
         >
           <NavBar />

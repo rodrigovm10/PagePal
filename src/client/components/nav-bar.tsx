@@ -9,8 +9,7 @@ export async function NavBar() {
 
   return (
     <header
-      className='
-      sticky top-0 z-50 w-full
+      className=' sticky top-0 z-50 w-full
       border-b border-border bg-background backdrop-blur-sm supports-[backdrop-filter]:bg-background/60
       '
     >

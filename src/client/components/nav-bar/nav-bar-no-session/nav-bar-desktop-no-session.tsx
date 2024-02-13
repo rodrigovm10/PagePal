@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 import { ModeToggle } from '@client/components/mode-toggle'
-import { LINKS } from '@client/constants'
+import { ROUTER } from '@client/constants'
 
 export function NavBarDesktopNoSession() {
   const pathname = usePathname()
@@ -17,7 +17,7 @@ export function NavBarDesktopNoSession() {
       </h1>
 
       <ul className='flex justify-between gap-x-5 items-center font-thin '>
-        {LINKS.map((link, i) => {
+        {ROUTER.map((link, i) => {
           return (
             <Link
               key={i}

@@ -7,7 +7,7 @@ import { usePathname } from 'next/navigation'
 import { IoClose, IoMenu } from 'react-icons/io5'
 import { motion, AnimatePresence } from 'framer-motion'
 
-import { LINKS } from '@client/constants'
+import { ROUTER } from '@client/constants'
 import { ModeToggle } from '@client/components/mode-toggle'
 
 export function NavBarMobileNoSession() {
@@ -40,7 +40,7 @@ export function NavBarMobileNoSession() {
             className='p-2'
           >
             <ul className={cn('flex flex-col justify-between gap-x-5 items-center font-thin ')}>
-              {LINKS.map((link, i) => (
+              {ROUTER.map((link, i) => (
                 <Link
                   key={i}
                   href={link.href}

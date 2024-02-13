@@ -3,7 +3,7 @@
 import { cn } from '@client/libs/utils'
 import Link from 'next/link'
 
-import { LINKS_FOOTER } from '@client/constants'
+import { ROUTER_FOOTER } from '@client/constants'
 
 export function NavBarFooter() {
   return (
@@ -12,7 +12,7 @@ export function NavBarFooter() {
         <Link href='/'>PagePal</Link>
       </h1>
       <ul className='flex flex-col md:flex-row justify-between gap-x-5 items-center gap-y-5 text-center md:text-left'>
-        {LINKS_FOOTER.map((link, i) => {
+        {ROUTER_FOOTER.map((link, i) => {
           return (
             <li key={i}>
               <Link

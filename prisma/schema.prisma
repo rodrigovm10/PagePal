@@ -24,6 +24,7 @@ model User {
   image         String?
   role          UserRole @default(DEFAULT)
   accounts      Account[]
+  articles      Article[]
 }
 
 model Account {
@@ -43,4 +44,24 @@ model Account {
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
+}
+
+model Article {
+  id              String @id @default(cuid())
+  title           String
+  banner          String?
+  isPremium       Boolean
+  publishDate     DateTime
+  content         String
+  comments        String[]
+  categories      Category[]
+  userId          String 
+
+  user   User @relation(fields: [userId], references: [id])
+}
+
+model Category{
+  id        Int @id @default(autoincrement())
+  name      String
+  articles  Article[]
 }

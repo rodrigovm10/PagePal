@@ -11,7 +11,7 @@ export function NavBarDesktopNoSession() {
   const pathname = usePathname()
 
   return (
-    <nav className='hidden lg:flex lg:justify-between lg:px-20 lg:py-3 lg:z-50 '>
+    <nav className='hidden lg:flex lg:justify-between lg:px-20 lg:py-3 lg:z-50'>
       <h1 className='font-bold text-3xl'>
         <Link href='/'>PagePal</Link>
       </h1>

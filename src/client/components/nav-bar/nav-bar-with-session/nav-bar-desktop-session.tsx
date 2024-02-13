@@ -1,15 +1,17 @@
-import { signOut } from '@/server/auth/auth'
+import { auth, signOut } from '@/server/auth/auth'
 import Link from 'next/link'
 
 import { ModeToggle } from '@client/components/mode-toggle'
 import { Button } from '@client/components/ui/button'
 
-export function NavBarDesktopSession() {
+export async function NavBarDesktopSession() {
+  console.log('render')
+  const session = await auth()
+  console.log(session)
   return (
     <nav
       className='
-      flex justify-between pt-5 border-b-8 border-gray-500 py-3 px-20 fixed w-full z-10
-      lg:px-40 md:hidden
+      hidden lg:flex lg:justify-between lg:px-20 lg:py-3 lg:z-50
       '
     >
       <h1 className='font-bold text-3xl'>

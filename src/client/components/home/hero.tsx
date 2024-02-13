@@ -51,6 +51,7 @@ export function Hero() {
           width={500}
           height={500}
           src={hero}
+          className='hidden lg:block'
           alt='hero'
         />
       </div>

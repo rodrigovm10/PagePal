@@ -11,10 +11,4 @@ export const LINKS_FOOTER = [
   { href: '/about-us', name: 'Sobre nosotros' }
 ]
 
-export const CATEGORIES_RECOMMENDED = [
-  'Deportes',
-  'Programación',
-  'Motivación',
-  'Matemáticas',
-  'Física'
-]
+export const CATEGORIES_RECOMMENDED = ['Deportes', 'Programación', 'Motivación']

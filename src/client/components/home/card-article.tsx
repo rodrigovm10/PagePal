@@ -11,8 +11,8 @@ import favicon from '@/app/favicon.ico'
 
 export function CardArticle() {
   return (
-    <Card className='max-w-full w-fit hover:bg-primary/10 cursor-pointer'>
-      <article className='flex gap-x-10'>
+    <Card className='max-w-full w-full hover:bg-primary/10 cursor-pointer'>
+      <article className='flex justify-between'>
         <CardHeader>
           <div className='flex gap-x-2'>
             <Image
@@ -24,14 +24,18 @@ export function CardArticle() {
             />
             <p className='text-sm'>The Nib</p>
           </div>
-          <CardTitle>Martin Luther King Jr Was More Radical Than You Think</CardTitle>
-          <CardDescription>On MLK Day, t’s time to remember who he really was.</CardDescription>
+          <CardTitle className='text-lg md:text-2xl'>
+            Martin Luther King Jr Was More Radical Than You Think
+          </CardTitle>
+          <CardDescription className='hidden md:block'>
+            On MLK Day, t’s time to remember who he really was.
+          </CardDescription>
         </CardHeader>
         <CardContent className='flex justify-center items-center'>
           <img
             src='https://miro.medium.com/v2/resize:fill:250:168/1*C-b6OCEOoacSvBjC3ICoyw.jpeg'
             alt='medium'
-            className='w-[90%] object-cover mt-auto mb-0 '
+            className='w-fit my-auto'
           />
         </CardContent>
       </article>

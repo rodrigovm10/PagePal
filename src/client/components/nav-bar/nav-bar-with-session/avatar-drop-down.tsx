@@ -12,6 +12,8 @@ import { LogOut } from '@client/components/auth/log-out'
 import { Avatar, AvatarImage } from '@client/components/ui/avatar'
 
 export function AvatarDropDown({ session }: { session: Session }) {
+  if (session.user.image === null) return
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>

@@ -25,8 +25,6 @@ export const {
   },
   callbacks: {
     async session({ token, session }) {
-      if (session.user === null) return
-
       if (token.sub !== undefined && session.user !== undefined) {
         session.user.id = token.sub
       }

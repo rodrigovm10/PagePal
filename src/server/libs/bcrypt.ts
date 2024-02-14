@@ -5,8 +5,11 @@ export const comparePasswords = async ({
   hashPassword
 }: {
   originalPassword: string
-  hashPassword: string
+  hashPassword: string | null
 }) => {
+  if (hashPassword === null) {
+    throw new Error('[BCRYPT] hashPassowrd null')
+  }
   const isEqual = await compare(originalPassword, hashPassword)
   return isEqual
 }

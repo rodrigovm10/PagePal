@@ -3,9 +3,15 @@
 import { Aside } from './aside'
 import { ArticlesSections } from './articles-section'
 import { useWindowWidth } from '@/client/hooks/useWindowWidth'
+import type { Category } from '@prisma/client'
 
-export function Main() {
+interface MainProps {
+  categories?: [Category]
+}
+
+export function Main({ categories }: MainProps) {
   const { width } = useWindowWidth()
+  console.log(categories)
 
   return (
     <main
@@ -15,12 +21,12 @@ export function Main() {
       {width > 768 && (
         <>
           <ArticlesSections />
-          <Aside />
+          <Aside categories={categories} />
         </>
       )}
       {width <= 768 && (
         <>
-          <Aside />
+          <Aside categories={categories} />
           <ArticlesSections />
         </>
       )}

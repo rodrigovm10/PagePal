@@ -6,6 +6,7 @@ import Google from 'next-auth/providers/google'
 import { comparePasswords } from '../libs/bcrypt'
 import { getUserByEmail } from '@server/data/user'
 import { LoginSchema } from '@client/schemas/index'
+import type { User } from '@/types/types'
 
 export default {
   providers: [
@@ -18,7 +19,7 @@ export default {
       clientSecret: process.env.GITHUB_CLIENT_SECRET
     }),
     Credentials({
-      async authorize(credentials) {
+      async authorize(credentials): Promise<typeof credentials | undefined | User> {
         const validateFields = LoginSchema.safeParse(credentials)
 
         if (validateFields.success) {
@@ -26,13 +27,11 @@ export default {
 
           const user = await getUserByEmail({ email })
 
-          if (user === null) return
-
-          if (user !== null || user.password !== null) return
+          if (user?.password !== null) return
 
           const passwordMatch = await comparePasswords({
             originalPassword: password,
-            hashPassword: user.password
+            hashPassword: user?.password
           })
 
           if (passwordMatch) return user

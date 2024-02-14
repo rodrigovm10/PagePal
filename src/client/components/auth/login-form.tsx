@@ -21,9 +21,11 @@ export function LoginForm() {
   const { form, handleSubmit, error, isPending, success } = useLoginForm()
   const searchParams = useSearchParams()
   const urlError =
-    searchParams.get('error') === 'OAuthAccountNotLinked' &&
-    'El correo esta en uso con un proveedor distinto'
-
+    searchParams.get('error') === 'OAuthAccountNotLinked'
+      ? 'El correo esta en uso con un proveedor distinto'
+      : ''
+  console.log(error)
+  console.log(urlError)
   return (
     <CardWrapper
       headerLabel='Bienvenido de vuelta'
@@ -75,7 +77,7 @@ export function LoginForm() {
             />
           </div>
           <FormSuccess message={success} />
-          <FormError message={error || urlError} />
+          <FormError message={error ?? urlError} />
           <Button
             type='submit'
             className='w-full'

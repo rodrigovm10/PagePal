@@ -1,25 +1,29 @@
 import Link from 'next/link'
 import { cn } from '@/client/libs/utils'
-import { CATEGORIES_RECOMMENDED, ROUTER_FOOTER } from '@/client/constants'
+import { ROUTER_FOOTER } from '@/client/constants'
 
 import { Separator } from '../ui/separator'
 import { badgeVariants } from '@client/components/ui/badge'
 import { AccountsToFollow } from './accounts-to-follow'
+import { fetchCategory } from '@/server/data/category'
+import type { Category } from '@prisma/client'
 
-export function Aside() {
+export async function Aside() {
+  const categories = await fetchCategory()
+
   return (
     <aside className='max-w-full w-72'>
       <div className='sticky top-16'>
-        <h2 className='text-lg font-medium mt-10 mb-4'>Algunos temas que pueden interesarte</h2>
+        <h2 className='text-sm font-medium mt-10 mb-4'>Algunos temas que pueden interesarte</h2>
         <article className='space-y-5'>
-          <section className='grid grid-cols-2 gap-5'>
-            {CATEGORIES_RECOMMENDED.map((category, i) => (
+          <section className='space-x-4'>
+            {categories?.map((category: Category) => (
               <Link
                 href='2'
-                key={i}
+                key={category.id}
                 className={badgeVariants({ variant: 'default' })}
               >
-                {category}
+                {category.name}
               </Link>
             ))}
           </section>

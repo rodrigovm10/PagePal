@@ -16,7 +16,7 @@ export function NavBarDesktopNoSession() {
         <Link href='/'>PagePal</Link>
       </h1>
 
-      <ul className='flex justify-between gap-x-5 items-center font-thin '>
+      <ul className='flex justify-between gap-x-5 items-center font-thin'>
         {ROUTER.map((link, i) => {
           return (
             <Link

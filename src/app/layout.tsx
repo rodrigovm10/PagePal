@@ -4,6 +4,7 @@ import { cn } from '@client/libs/utils'
 import { Onest } from 'next/font/google'
 import { NavBar } from '@client/components/nav-bar'
 import { ThemeProvider } from '@client/components/providers/theme-provider'
+import { SessionProvider } from 'next-auth/react'
 
 const font = Onest({ subsets: ['latin'], weight: ['400', '500', '600', '700'] })
 
@@ -23,8 +24,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           disableTransitionOnChange
           storageKey='pagepal-theme'
         >
-          <NavBar />
-          {children}
+          <SessionProvider>
+            <NavBar />
+            <div className='mb-14'></div>
+            {children}
+          </SessionProvider>
         </ThemeProvider>
       </body>
     </html>

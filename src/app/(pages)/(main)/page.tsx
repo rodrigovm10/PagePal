@@ -7,7 +7,7 @@ import { Hero } from '@/client/components/home/hero'
 export default async function HomePage() {
   const session = await auth()
   const categories = await fetchCategory()
-  console.log(categories)
+
   return (
     <>
       {session !== null && <Main categories={categories} />}

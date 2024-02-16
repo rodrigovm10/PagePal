@@ -1,6 +1,6 @@
 import { AccountCard } from './account-card'
 
-export function AccountsToFollow() {
+export async function AccountsToFollow() {
   return (
     <article>
       <h3 className='font-medium text-sm mb-2'>Cuentas para seguir</h3>

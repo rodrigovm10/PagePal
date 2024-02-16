@@ -1,3 +1,5 @@
+'use client'
+
 import Link from 'next/link'
 import { cn } from '@/client/libs/utils'
 import { ROUTER_FOOTER } from '@/client/constants'
@@ -6,14 +8,15 @@ import { Separator } from '../ui/separator'
 import { badgeVariants } from '@client/components/ui/badge'
 import { AccountsToFollow } from './accounts-to-follow'
 import type { Category } from '@prisma/client'
+import { useSession } from 'next-auth/react'
 
 interface AsideProps {
   categories: [Category] | undefined
 }
 
 export function Aside({ categories }: AsideProps) {
-  console.log(categories)
-
+  const { status } = useSession()
+  console.log(status)
   return (
     <aside className='max-w-full w-72'>
       <div className='sticky top-16'>
@@ -31,8 +34,13 @@ export function Aside({ categories }: AsideProps) {
             ))}
           </section>
           <Separator />
-          <AccountsToFollow />
-          <Separator />
+          {status === 'authenticated' && (
+            <>
+              <AccountsToFollow />
+              <Separator />
+            </>
+          )}
+
           <section className='hidden lg:block'>
             <ul className='flex flex-col md:flex-row justify-between gap-x-5 items-center '>
               {ROUTER_FOOTER.map((link, i) => {

@@ -6,6 +6,7 @@ import { Separator } from '../ui/separator'
 import { badgeVariants } from '@client/components/ui/badge'
 import { AccountsToFollow } from './accounts-to-follow'
 import type { Category } from '@prisma/client'
+import { FooterSocialMedia } from '../footer/footer-social-media'
 
 interface AsideProps {
   categories: [Category] | undefined
@@ -48,6 +49,9 @@ export function AsideAccountsToFollow({ categories }: AsideProps) {
                 )
               })}
             </ul>
+            <div className='flex justify-center text list-none mt-4'>
+              <FooterSocialMedia />
+            </div>
           </section>
         </article>
       </div>

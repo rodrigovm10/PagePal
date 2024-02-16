@@ -5,6 +5,7 @@ import { ROUTER_FOOTER } from '@/client/constants'
 import { Separator } from '../ui/separator'
 import { badgeVariants } from '@client/components/ui/badge'
 import type { Category } from '@prisma/client'
+import { FooterSocialMedia } from '../footer/footer-social-media'
 
 interface AsideProps {
   categories: [Category] | undefined
@@ -37,7 +38,7 @@ export function Aside({ categories }: AsideProps) {
                     <Link
                       href={link.href}
                       className={cn(
-                        'opacity-60 hover:opacity-100 transition-all text-sm text-center'
+                        'opacity-60 hover:opacity-100 transition-all text-[8px] text-center'
                       )}
                     >
                       {link.name}
@@ -46,6 +47,9 @@ export function Aside({ categories }: AsideProps) {
                 )
               })}
             </ul>
+            <div className='flex justify-center text list-none mt-4'>
+              <FooterSocialMedia />
+            </div>
           </section>
         </article>
       </div>

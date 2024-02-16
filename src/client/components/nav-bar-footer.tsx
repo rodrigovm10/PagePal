@@ -4,6 +4,7 @@ import { cn } from '@client/libs/utils'
 import Link from 'next/link'
 
 import { ROUTER_FOOTER } from '@client/constants'
+import { FooterSocialMedia } from './footer/footer-social-media'
 
 export function NavBarFooter() {
   return (
@@ -24,6 +25,7 @@ export function NavBarFooter() {
             </li>
           )
         })}
+        <FooterSocialMedia />
       </ul>
     </nav>
   )

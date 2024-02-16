@@ -24,11 +24,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           disableTransitionOnChange
           storageKey='pagepal-theme'
         >
-          <SessionProvider>
-            <NavBar />
-            <div className='mb-14'></div>
-            {children}
-          </SessionProvider>
+          <NavBar />
+          <div className='mb-14'></div>
+          <SessionProvider>{children}</SessionProvider>
         </ThemeProvider>
       </body>
     </html>

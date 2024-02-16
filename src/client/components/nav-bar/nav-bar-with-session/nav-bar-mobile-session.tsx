@@ -1,43 +1,71 @@
-import { signOut } from '@/server/auth/auth'
-import Link from 'next/link'
+'use client'
 
+import Link from 'next/link'
+import { useState } from 'react'
+import { cn } from '@client/libs/utils'
+import { usePathname } from 'next/navigation'
+import { IoClose, IoMenu } from 'react-icons/io5'
+import { motion, AnimatePresence } from 'framer-motion'
+
+import { ROUTER_SESSION } from '@client/constants'
 import { ModeToggle } from '@client/components/mode-toggle'
-import { Button } from '@client/components/ui/button'
+import { AvatarDropDown } from './avatar-drop-down'
+import { useSession } from 'next-auth/react'
 
 export function NavBarMobileSession() {
+  const pathname = usePathname()
+  const { data } = useSession()
+  const [isOpen, setIsOpen] = useState(false)
+
+  const handleClickOpen = () => {
+    setIsOpen(!isOpen)
+  }
+
   return (
-    <nav
-      className='
-      flex justify-between pt-5 border-b-8 border-gray-500 py-3 px-20 fixed w-full z-10
-      lg:px-40 md:hidden
-      '
-    >
-      <h1 className='font-bold text-3xl'>
-        <Link href='/'>PagePal</Link>
-      </h1>
-      <ul className='flex justify-between gap-x-5 items-center text-white'>
-        <li>
-          <form
-            action={async () => {
-              'use server'
-              await signOut()
-            }}
+    <div className='lg:hidden relative'>
+      <nav className='flex justify-between px-10 py-3 40px z-50 '>
+        <h1 className='font-bold text-3xl'>
+          <Link href='/'>PagePal</Link>
+        </h1>
+        <motion.button onClick={handleClickOpen}>
+          {isOpen && <IoClose className='size-8 text-primary/80 cursor-pointer' />}
+          {!isOpen && <IoMenu className='size-8 text-primary/80 cursor-pointer' />}
+        </motion.button>
+      </nav>
+      {isOpen && (
+        <AnimatePresence>
+          <motion.div
+            layout
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0, transition: { ease: 'easeInOut' } }}
+            transition={{ ease: 'easeInOut' }}
+            className='p-2'
           >
-            <Button type='submit'>Cerrar sesión</Button>
-          </form>
-        </li>
-        <li>
-          <Link
-            href='/register'
-            className='bg-black text-white rounded-full hover:bg-black/80 h-10 px-4 py-2'
-          >
-            Registrate
-          </Link>
-        </li>
-        <li className='self-start'>
-          <ModeToggle />
-        </li>
-      </ul>
-    </nav>
+            <ul className={cn('flex flex-col justify-between gap-x-5 items-center font-thin ')}>
+              {ROUTER_SESSION.map((link, i) => (
+                <Link
+                  key={i}
+                  href={link.href}
+                  scroll
+                  className={cn(
+                    'opacity-60 hover:opacity-100 transition-all',
+                    pathname === `${link.href}` && 'opacity-100 text-primary'
+                  )}
+                >
+                  {link.name}
+                </Link>
+              ))}
+              <li>
+                <AvatarDropDown session={data} />
+              </li>
+              <li className='self-center'>
+                <ModeToggle />
+              </li>
+            </ul>
+          </motion.div>
+        </AnimatePresence>
+      )}
+    </div>
   )
 }

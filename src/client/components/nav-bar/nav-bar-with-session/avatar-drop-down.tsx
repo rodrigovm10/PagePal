@@ -24,10 +24,6 @@ export function AvatarDropDown({ session }: { session: Session | null }) {
       <DropdownMenuContent>
         <DropdownMenuLabel>Cuenta</DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>Profile</DropdownMenuItem>
-        <DropdownMenuItem>Billing</DropdownMenuItem>
-        <DropdownMenuItem>Team</DropdownMenuItem>
-        <DropdownMenuItem>Subscription</DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem>
           <LogOut />

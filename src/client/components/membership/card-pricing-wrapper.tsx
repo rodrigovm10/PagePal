@@ -3,6 +3,7 @@ import { cn } from '@/client/libs/utils'
 import { Button } from '@client/components/ui/button'
 import { Header } from '@client/components/membership/header'
 import { Card, CardContent, CardFooter, CardHeader } from '@client/components/ui/card'
+import Link from 'next/link'
 interface CardWrapperProps {
   children: React.ReactNode
   headerLabel: string
@@ -38,14 +39,16 @@ export function CardPricingWrapper({
       </CardHeader>
       <CardContent>{children}</CardContent>
       <CardFooter className='flex justify-center mt-5'>
-        <Button
-          className={cn(
-            'dark:text-white w-full hover:-translate-y-2 transition-all ',
-            showPopular && 'dark:text-dark dark:bg-white'
-          )}
-        >
-          {textButton}
-        </Button>
+        <Link href='/register'>
+          <Button
+            className={cn(
+              'dark:text-white w-full hover:-translate-y-2 transition-all ',
+              showPopular && 'dark:text-dark dark:bg-white'
+            )}
+          >
+            {textButton}
+          </Button>
+        </Link>
       </CardFooter>
     </Card>
   )

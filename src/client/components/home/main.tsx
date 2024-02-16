@@ -15,7 +15,10 @@ export function Main({ categories }: MainProps) {
   const { status } = useSession()
 
   return (
-    <main className='w-[85vw] lg:w-[75vw] mx-auto pb-4 grid grid-cols-1 lg:grid-cols-3 gap-x-10 relative h-full '>
+    <main
+      className='w-[85vw] lg:w-[75vw] mx-auto pb-4 grid grid-cols-1 lg:grid-cols-3 gap-x-10 relative h-full '
+      id='start-read'
+    >
       {width > 768 && (
         <>
           <ArticlesSections />

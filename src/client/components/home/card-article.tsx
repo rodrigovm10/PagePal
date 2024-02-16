@@ -11,7 +11,7 @@ import favicon from '@/app/favicon.ico'
 
 export function CardArticle() {
   return (
-    <article className=''>
+    <article className='cursor-pointer'>
       <article className='flex justify-between'>
         <section>
           <div className='flex gap-x-2'>

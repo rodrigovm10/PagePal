@@ -1,6 +1,5 @@
 import Image from 'next/image'
 
-import { Button } from '@client/components/ui/button'
 import hero from '@/assets/hero.webp'
 import { TextWavy } from '../text-wavy'
 import Link from 'next/link'
@@ -39,12 +38,13 @@ export function Hero() {
         >
           Descubra historias, pensamientos y experiencia de escritores sobre cualquier tema.
         </h2>
-        <Button
-          size='lg'
-          className='rounded-full max-w-full w-fit self-center lg:self-auto text-lg '
+
+        <Link
+          href='#start-read'
+          className='bg-primary text-primary-foreground hover:bg-primary/90 rounded-full max-w-full w-fit self-center lg:self-auto text-lg px-4 py-2'
         >
-          <Link href='#start-read'>Empezar a leer</Link>
-        </Button>
+          Empezar a leer
+        </Link>
       </div>
       <div>
         <Image

@@ -13,14 +13,16 @@ interface AsideProps {
 
 export function Aside({ categories }: AsideProps) {
   return (
-    <aside className='max-w-full w-72'>
-      <div className='sticky top-16'>
-        <h2 className='text-sm font-medium mt-10 mb-4'>Algunos temas que pueden interesarte</h2>
+    <aside className='max-w-full w-auto lg:w-72 mx-auto'>
+      <div className='sticky top-20'>
+        <h2 className='text-lg lg:text-sm font-medium mt-10 mb-4'>
+          Algunos temas que pueden interesarte
+        </h2>
         <article className='space-y-5'>
-          <section className='space-x-4'>
+          <section className='flex justify-center'>
             {categories?.map((category: Category) => (
               <Link
-                href='2'
+                href={`/category/${category.name}`}
                 key={category.id}
                 className={badgeVariants({ variant: 'default' })}
               >
@@ -38,7 +40,7 @@ export function Aside({ categories }: AsideProps) {
                     <Link
                       href={link.href}
                       className={cn(
-                        'opacity-60 hover:opacity-100 transition-all text-[8px] text-center'
+                        'opacity-60 hover:opacity-100 transition-all text-[12px] text-center'
                       )}
                     >
                       {link.name}

@@ -8,4 +8,11 @@ export interface User {
   password: string | null
   image: string | null
   role: UserRole
+  categories: Category[]
+}
+
+export interface Category {
+  id: number
+  name: string
+  followers: number | null
 }

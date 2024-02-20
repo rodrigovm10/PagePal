@@ -9,7 +9,7 @@ import type { Category } from '@prisma/client'
 import { FooterSocialMedia } from '../footer/footer-social-media'
 
 interface AsideProps {
-  categories: [Category] | undefined
+  categories: Category[] | undefined
 }
 
 export function AsideAccountsToFollow({ categories }: AsideProps) {
@@ -19,15 +19,17 @@ export function AsideAccountsToFollow({ categories }: AsideProps) {
         <h2 className='text-sm font-medium mt-10 mb-4'>Algunos temas que pueden interesarte</h2>
         <article className='space-y-5'>
           <section className='space-x-4'>
-            {categories?.map((category: Category) => (
-              <Link
-                href='2'
-                key={category.id}
-                className={badgeVariants({ variant: 'default' })}
-              >
-                {category.name}
-              </Link>
-            ))}
+            <section className='flex justify-center'>
+              {categories?.map((category: Category) => (
+                <Link
+                  href={`/category/${category.name}`}
+                  key={category.id}
+                  className={badgeVariants({ variant: 'default' })}
+                >
+                  {category.name}
+                </Link>
+              ))}
+            </section>
           </section>
           <Separator />
           <AccountsToFollow />

@@ -12,6 +12,8 @@ export const publicRoutes = [
   '/not-found'
 ]
 
+export const loginRoutes = ['/write']
+
 /**
  * An array of routes that are use for authentication
  * These routes will redirect logged in users to /

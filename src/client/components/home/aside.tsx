@@ -8,7 +8,7 @@ import type { Category } from '@prisma/client'
 import { FooterSocialMedia } from '../footer/footer-social-media'
 
 interface AsideProps {
-  categories: [Category] | undefined
+  categories: Category[] | undefined
 }
 
 export function Aside({ categories }: AsideProps) {

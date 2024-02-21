@@ -14,5 +14,5 @@ export interface User {
 export interface Category {
   id: number
   name: string
-  followers: number | null
+  followers: number
 }

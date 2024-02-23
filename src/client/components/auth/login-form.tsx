@@ -24,8 +24,7 @@ export function LoginForm() {
     searchParams.get('error') === 'OAuthAccountNotLinked'
       ? 'El correo esta en uso con un proveedor distinto'
       : ''
-  console.log(error)
-  console.log(urlError)
+
   return (
     <CardWrapper
       headerLabel='Bienvenido de vuelta'

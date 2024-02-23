@@ -27,10 +27,10 @@ export default async function IdCategoryPage({ params }: { params: { categoryNam
   )
 }
 
-export async function generateStaticParams() {
-  const categories = await getAllCategories()
+// export async function generateStaticParams() {
+//   const categories = await getAllCategories()
 
-  return categories.map((c: Category) => ({
-    name: String(c.name)
-  }))
-}
+//   return categories.map((c: Category) => ({
+//     name: String(c.name)
+//   }))
+// }

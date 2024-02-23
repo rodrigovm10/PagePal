@@ -11,8 +11,6 @@ export async function GET(request: NextRequest) {
       select: { id: true, name: true, followers: true, articles: true, users: true }
     })
 
-    console.log(category)
-
     if (!category) {
       return NextResponse.json({
         message: 'Categoría no encontrada.',

@@ -22,7 +22,12 @@ export function NavBarMobileNoSession() {
     <div className='lg:hidden relative'>
       <nav className='flex justify-between px-10 py-3 40px z-50 '>
         <h1 className='font-bold text-3xl'>
-          <Link href='/'>PagePal</Link>
+          <Link
+            href='/'
+            scroll
+          >
+            PagePal
+          </Link>
         </h1>
         <motion.button onClick={handleClickOpen}>
           {isOpen && <IoClose className='size-8 text-primary/80 cursor-pointer' />}
@@ -45,6 +50,7 @@ export function NavBarMobileNoSession() {
                   key={i}
                   href={link.href}
                   scroll
+                  prefetch={false}
                   className={cn(
                     'opacity-60 hover:opacity-100 transition-all',
                     pathname === `${link.href}` && 'opacity-100 text-primary'

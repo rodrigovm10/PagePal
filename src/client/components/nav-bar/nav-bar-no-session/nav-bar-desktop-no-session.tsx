@@ -15,7 +15,7 @@ export function NavBarDesktopNoSession() {
       <h1 className='font-bold text-3xl'>
         <Link
           href='/'
-          prefetch
+          prefetch={true}
           scroll
         >
           PagePal
@@ -29,7 +29,7 @@ export function NavBarDesktopNoSession() {
               key={i}
               href={link.href}
               scroll
-              prefetch
+              prefetch={true}
               className={cn(
                 'opacity-60 hover:opacity-100 transition-all',
                 pathname === `${link.href}` && 'opacity-100 text-primary'

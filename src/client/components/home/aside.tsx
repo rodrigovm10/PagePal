@@ -24,6 +24,8 @@ export function Aside({ categories }: AsideProps) {
               <Link
                 href={`/category/${category.name}`}
                 key={category.id}
+                scroll
+                prefetch
                 className={badgeVariants({ variant: 'default' })}
               >
                 {category.name}

@@ -1,19 +1,22 @@
 import { db } from '@/server/db/db'
+import { NextResponse } from 'next/server'
 import { getUserByEmail } from '@/server/data/user'
 import { getCategory } from '@/server/data/category'
-import { NextResponse } from 'next/server'
+import { followAndUnfollowSchema } from '@/server/schemas/follow-unfollow'
 
 export async function PUT(request: Request) {
   try {
-    const data = await request.json()
-    const { categoryName, userEmail } = data
+    const body = await request.json()
+    const result = followAndUnfollowSchema.safeParse(body)
 
-    if (categoryName === '' || userEmail === '') {
+    if (!result.success) {
       return NextResponse.json({
-        message: 'El nombre de la categoría o el nombre de usuario son obligatorios.',
+        message: result.error.issues,
         status: 404
       })
     }
+
+    const { categoryName, userEmail } = body
 
     const category = await getCategory({ name: categoryName })
     const user = await getUserByEmail({ email: userEmail })

@@ -1,5 +1,3 @@
-import { getCategory } from '@/server/data/category'
-import { getUserByEmail } from '@/server/data/user'
 import { db } from '@/server/db/db'
 import { type NextRequest, NextResponse } from 'next/server'
 

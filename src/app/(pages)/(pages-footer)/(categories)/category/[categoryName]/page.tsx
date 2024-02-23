@@ -1,5 +1,5 @@
 import type { Category } from '@/types/types'
-import { getCategory } from '@/server/data/category'
+import { getAllCategories, getCategory } from '@/server/data/category'
 import { Separator } from '@/client/components/ui/separator'
 import { FollowButton } from '@/client/components/category/follow-button'
 import { auth } from '@/server/auth/auth'
@@ -25,4 +25,12 @@ export default async function IdCategoryPage({ params }: { params: { categoryNam
       </section>
     </main>
   )
+}
+
+export async function generateStaticParams() {
+  const categories = await getAllCategories()
+
+  return categories.map((c: Category) => ({
+    name: String(c.name)
+  }))
 }

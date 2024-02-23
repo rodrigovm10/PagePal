@@ -4,19 +4,14 @@ import { NextResponse, type NextRequest } from 'next/server'
 export async function GET(request: NextRequest) {
   try {
     const { pathname } = request.nextUrl
-    const id = Number(pathname.split('/')[3])
+    const name = pathname.split('/')[3]
 
-    if (isNaN(id)) {
-      return NextResponse.json({
-        message: 'ID de categoría debe ser un número.',
-        status: 400
-      })
-    }
-
-    const category = await db.category.findUnique({
-      where: { id },
+    const category = await db.category.findFirst({
+      where: { name },
       select: { id: true, name: true, followers: true, articles: true, users: true }
     })
+
+    console.log(category)
 
     if (!category) {
       return NextResponse.json({

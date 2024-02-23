@@ -21,6 +21,8 @@ export function ArticleDescription() {
           En lugar de vender anuncios o tus datos, nos respalda una{' '}
           <Link
             href='/register'
+            scroll
+            prefetch
             className='underline text-primary font-black hover:animate-pulse'
           >
             creciente comunidad de miembros de PagePal

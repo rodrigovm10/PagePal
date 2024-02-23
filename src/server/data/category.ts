@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export const getCategory = async ({ name }: { name: string }) => {
   try {
-    const response = await axios.get('http://localhost:3000/api/category/1')
+    const response = await axios.get(`http://localhost:3000/api/category/${name}`)
     const category = response.data
 
     return category

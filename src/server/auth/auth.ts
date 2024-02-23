@@ -4,6 +4,7 @@ import { PrismaAdapter } from '@auth/prisma-adapter'
 import { db } from '../db/db'
 import { getUserById } from '../data/user'
 import authConfig from '@/server/auth/auth.config'
+import type { UserRole } from '@prisma/client'
 
 export const {
   handlers: { GET, POST },
@@ -12,8 +13,7 @@ export const {
   signOut
 } = NextAuth({
   pages: {
-    signIn: '/login',
-    error: '/error'
+    signIn: '/login'
   },
   events: {
     async linkAccount({ user }) {
@@ -24,13 +24,13 @@ export const {
     }
   },
   callbacks: {
-    async session({ token, session }) {
-      if (token.sub !== undefined && session.user !== undefined) {
+    async session({ session, token }: any) {
+      if (token.sub && session.user) {
         session.user.id = token.sub
       }
 
-      if (token.role !== undefined && session.user !== undefined) {
-        session.user.role = token.role
+      if (token.role && session.user) {
+        session.user.role = token.role as UserRole
       }
 
       return session

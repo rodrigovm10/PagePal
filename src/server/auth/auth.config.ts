@@ -19,7 +19,8 @@ export default {
       clientSecret: process.env.GITHUB_CLIENT_SECRET
     }),
     Credentials({
-      async authorize(credentials): Promise<typeof credentials | undefined | User> {
+      async authorize(credentials, request): Promise<User | null> {
+        // Añade `request` como segundo parámetro
         const validateFields = LoginSchema.safeParse(credentials)
 
         if (validateFields.success) {
@@ -27,15 +28,17 @@ export default {
 
           const user = await getUserByEmail({ email })
 
-          if (user?.password !== null) return
+          if (user?.password !== null) return null // Devuelve null si no hay contraseña
 
           const passwordMatch = await comparePasswords({
             originalPassword: password,
             hashPassword: user?.password
           })
 
-          if (passwordMatch) return user
+          if (passwordMatch) return user // Devuelve el usuario si la contraseña coincide
         }
+
+        return null // Devuelve null en caso de error de validación
       }
     })
   ]

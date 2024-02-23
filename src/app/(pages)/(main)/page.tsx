@@ -11,13 +11,8 @@ export default async function HomePage() {
 
   return (
     <>
-      {session !== null && <Main categories={categories} />}
-      {session === null && (
-        <>
-          <Hero />
-          <Main categories={categories} />
-        </>
-      )}
+      {session === null && <Hero />}
+      <Main categories={categories} />
     </>
   )
 }

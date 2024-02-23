@@ -39,7 +39,11 @@ export function CardPricingWrapper({
       </CardHeader>
       <CardContent>{children}</CardContent>
       <CardFooter className='flex justify-center mt-5'>
-        <Link href='/register'>
+        <Link
+          href='/register'
+          scroll
+          prefetch
+        >
           <Button
             className={cn(
               'dark:text-white w-full hover:-translate-y-2 transition-all ',

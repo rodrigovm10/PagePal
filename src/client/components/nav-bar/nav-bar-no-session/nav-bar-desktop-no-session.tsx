@@ -13,7 +13,13 @@ export function NavBarDesktopNoSession() {
   return (
     <nav className='hidden lg:flex lg:justify-between lg:px-20 lg:py-3 lg:z-50'>
       <h1 className='font-bold text-3xl'>
-        <Link href='/'>PagePal</Link>
+        <Link
+          href='/'
+          prefetch
+          scroll
+        >
+          PagePal
+        </Link>
       </h1>
 
       <ul className='flex justify-between gap-x-5 items-center font-thin'>
@@ -23,6 +29,7 @@ export function NavBarDesktopNoSession() {
               key={i}
               href={link.href}
               scroll
+              prefetch
               className={cn(
                 'opacity-60 hover:opacity-100 transition-all',
                 pathname === `${link.href}` && 'opacity-100 text-primary'

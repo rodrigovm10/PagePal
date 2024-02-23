@@ -13,11 +13,9 @@ export default auth(async req => {
   const { nextUrl } = req
   const isLoggedIn = !!req.auth
 
-  console.log(nextUrl.password)
-
   const isApiRoute = nextUrl.pathname.startsWith(apiAuthPrefix)
-  const isAuthRoute = authRoutes.includes(nextUrl.pathname)
-  const isLoginRoute = loginRoutes.includes(nextUrl.pathname)
+  const isAuthRoute = authRoutes.some(route => nextUrl.pathname.startsWith(route))
+  const isLoginRoute = loginRoutes.some(route => nextUrl.pathname.startsWith(route))
 
   if (isApiRoute) return
 
@@ -25,12 +23,13 @@ export default auth(async req => {
     return Response.redirect(new URL(DEFAULT_LOGIN_REDIRECT, nextUrl))
   }
 
-  if (isLoggedIn && isLoginRoute) {
-    return Response.redirect(new URL(loginRoutes[0], nextUrl))
-  }
   if (isAuthRoute) {
     if (isLoggedIn) {
       return Response.redirect(new URL(DEFAULT_LOGIN_REDIRECT, nextUrl))
     }
   }
 })
+
+export const config = {
+  matcher: ['/((?!.+\\.[\\w]+$|_next).*)', '/', '/(api|trpc)(.*)']
+}

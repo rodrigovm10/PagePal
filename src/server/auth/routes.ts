@@ -9,17 +9,18 @@ export const publicRoutes = [
   '/about-us',
   '/privacy-pagepal',
   '/terms-pagepal',
-  '/not-found'
+  '/not-found',
+  '/error'
 ]
 
-export const loginRoutes = ['/write']
+export const loginRoutes = ['/new-story']
 
 /**
  * An array of routes that are use for authentication
  * These routes will redirect logged in users to /
  * @type {string[]}
  */
-export const authRoutes = ['/login', '/register', '/error']
+export const authRoutes = ['/login', '/register']
 
 /**
  * The prefix for API authentication routes

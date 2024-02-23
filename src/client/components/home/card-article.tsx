@@ -1,11 +1,4 @@
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle
-} from '@client/components/ui/card'
+import { CardContent, CardDescription, CardFooter, CardTitle } from '@client/components/ui/card'
 import Image from 'next/image'
 import favicon from '@/app/favicon.ico'
 

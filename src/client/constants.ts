@@ -11,5 +11,5 @@ export const ROUTER_FOOTER = [
   { href: '/about-us', name: 'Sobre nosotros' }
 ]
 
-export const ROUTER_SESSION = [{ href: '/write', name: 'Escribir' }]
+export const ROUTER_SESSION = [{ href: '/new-story', name: 'Escribir' }]
 export const CATEGORIES_RECOMMENDED = ['Deportes', 'Programación', 'Motivación']

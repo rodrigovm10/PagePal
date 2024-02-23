@@ -8,12 +8,8 @@ import { ArticlesSections } from './articles-section'
 import { useWindowWidth } from '@/client/hooks/useWindowWidth'
 import { AsideAccountsToFollow } from './aside-accounts-to-follow'
 import { SkeletonAside } from '../skeletons/aside-skeleton'
-import Loading from '@/app/(pages)/(main)/loading'
-interface MainProps {
-  categories?: Category[]
-}
 
-export function Main({ categories }: MainProps) {
+export function Main({ categories }: { categories?: Category[] }) {
   const { width } = useWindowWidth()
   const { status } = useSession()
 
@@ -24,10 +20,12 @@ export function Main({ categories }: MainProps) {
     >
       {width > 768 && (
         <>
-          <ArticlesSections />
+          <Suspense fallback={<SkeletonAside />}>
+            <ArticlesSections />
+          </Suspense>
           {status === 'unauthenticated' && <Aside categories={categories} />}
           {status === 'authenticated' && (
-            <Suspense fallback={<Loading />}>
+            <Suspense fallback={<SkeletonAside />}>
               <AsideAccountsToFollow categories={categories} />
             </Suspense>
           )}

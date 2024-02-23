@@ -16,7 +16,6 @@ export function Routes() {
             key={i}
             href={link.href}
             scroll
-            prefetch
             className={cn(
               'opacity-60 hover:opacity-100 transition-all',
               pathname === `${link.href}` && 'opacity-100 text-primary'

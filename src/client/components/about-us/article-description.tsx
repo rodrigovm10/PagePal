@@ -22,7 +22,6 @@ export function ArticleDescription() {
           <Link
             href='/register'
             scroll
-            prefetch
             className='underline text-primary font-black hover:animate-pulse'
           >
             creciente comunidad de miembros de PagePal

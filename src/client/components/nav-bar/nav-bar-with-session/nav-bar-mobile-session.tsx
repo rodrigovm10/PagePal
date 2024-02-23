@@ -7,10 +7,11 @@ import { usePathname } from 'next/navigation'
 import { IoClose, IoMenu } from 'react-icons/io5'
 import { motion, AnimatePresence } from 'framer-motion'
 
-import { ROUTER_SESSION } from '@client/constants'
-import { ModeToggle } from '@client/components/mode-toggle'
-import { AvatarDropDown } from './avatar-drop-down'
 import { useSession } from 'next-auth/react'
+import { ROUTER_SESSION } from '@client/constants'
+import { AvatarDropDown } from './avatar-drop-down'
+import { LinkPagepal } from '@client/components/link-pagepal'
+import { ModeToggle } from '@client/components/mode-toggle'
 
 export function NavBarMobileSession() {
   const pathname = usePathname()
@@ -24,15 +25,7 @@ export function NavBarMobileSession() {
   return (
     <div className='lg:hidden relative'>
       <nav className='flex justify-between px-10 py-3 40px z-50 '>
-        <h1 className='font-bold text-3xl'>
-          <Link
-            href='/'
-            prefetch
-            scroll
-          >
-            PagePal
-          </Link>
-        </h1>
+        <LinkPagepal />
         <motion.button onClick={handleClickOpen}>
           {isOpen && <IoClose className='size-8 text-primary/80 cursor-pointer' />}
           {!isOpen && <IoMenu className='size-8 text-primary/80 cursor-pointer' />}
@@ -54,7 +47,6 @@ export function NavBarMobileSession() {
                   key={i}
                   href={link.href}
                   scroll
-                  prefetch
                   className={cn(
                     'opacity-60 hover:opacity-100 transition-all',
                     pathname === `${link.href}` && 'opacity-100 text-primary'

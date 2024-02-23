@@ -9,6 +9,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 import { ROUTER } from '@client/constants'
 import { ModeToggle } from '@client/components/mode-toggle'
+import { LinkPagepal } from '@client/components/link-pagepal'
 
 export function NavBarMobileNoSession() {
   const pathname = usePathname()
@@ -21,14 +22,7 @@ export function NavBarMobileNoSession() {
   return (
     <div className='lg:hidden relative'>
       <nav className='flex justify-between px-10 py-3 40px z-50 '>
-        <h1 className='font-bold text-3xl'>
-          <Link
-            href='/'
-            scroll
-          >
-            PagePal
-          </Link>
-        </h1>
+        <LinkPagepal />
         <motion.button onClick={handleClickOpen}>
           {isOpen && <IoClose className='size-8 text-primary/80 cursor-pointer' />}
           {!isOpen && <IoMenu className='size-8 text-primary/80 cursor-pointer' />}
@@ -50,7 +44,6 @@ export function NavBarMobileNoSession() {
                   key={i}
                   href={link.href}
                   scroll
-                  prefetch={false}
                   className={cn(
                     'opacity-60 hover:opacity-100 transition-all',
                     pathname === `${link.href}` && 'opacity-100 text-primary'

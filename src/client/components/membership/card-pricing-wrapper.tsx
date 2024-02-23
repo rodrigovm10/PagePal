@@ -42,7 +42,6 @@ export function CardPricingWrapper({
         <Link
           href='/register'
           scroll
-          prefetch
         >
           <Button
             className={cn(

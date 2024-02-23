@@ -25,7 +25,6 @@ export function AsideAccountsToFollow({ categories }: AsideProps) {
                   href={`/category/${category.name}`}
                   key={category.id}
                   scroll
-                  prefetch
                   className={badgeVariants({ variant: 'default' })}
                 >
                   {category.name}

@@ -35,7 +35,6 @@ export function SectionLinks() {
         <Link
           href='/'
           scroll
-          prefetch
           className='p-2 text-2xl font-semibold underline bg-primary text-white dark:text-black hover:text-black hover:bg-white dark:hover:text-white dark:hover:bg-black transition-all flex '
         >
           Empezar a leer
@@ -56,7 +55,6 @@ export function SectionLinks() {
         <Link
           href='/login'
           scroll
-          prefetch
           className='p-2 text-2xl font-semibold underline bg-primary text-white dark:text-black hover:text-black hover:bg-white dark:hover:text-white dark:hover:bg-black transition-all flex'
         >
           Empezar a escribir
@@ -77,7 +75,6 @@ export function SectionLinks() {
         <Link
           href='/membership'
           scroll
-          prefetch
           className='p-2 text-2xl font-semibold underline bg-primary text-white dark:text-black hover:text-black hover:bg-white dark:hover:text-white dark:hover:bg-black transition-all flex'
         >
           Conviertete en miembro

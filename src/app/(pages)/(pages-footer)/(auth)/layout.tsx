@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-import loginImg from '@/assets/login-img.webp'
+import loginImg from '@public/assets/login-img.webp'
 import { Card, CardContent } from '@client/components/ui/card'
 
 export default async function AuthLayout({ children }: { children: React.ReactNode }) {

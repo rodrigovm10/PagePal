@@ -1,8 +1,8 @@
+import Link from 'next/link'
 import Image from 'next/image'
 
-import hero from '@/assets/hero.webp'
 import { TextWavy } from '../text-wavy'
-import Link from 'next/link'
+import hero from '@public/assets/hero.webp'
 
 export function Hero() {
   return (

@@ -1,7 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { cn } from '@client/libs/utils'
-import { Onest, Bungee } from 'next/font/google'
+import { Onest } from 'next/font/google'
 import { NavBar } from '@client/components/nav-bar'
 import { ThemeProvider } from '@client/components/providers/theme-provider'
 import { SessionProvider } from 'next-auth/react'

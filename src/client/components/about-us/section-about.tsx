@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 
-import about from '@/assets/about.webp'
+import about from '@public/assets/about.webp'
 import { TextWavy } from '@/client/components/text-wavy'
 
 export function SectionAbout() {

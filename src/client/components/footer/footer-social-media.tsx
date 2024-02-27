@@ -6,20 +6,20 @@ export function FooterSocialMedia() {
     <section className='flex flex-row gap-5 '>
       <li>
         <Link
-          href='https://www.facebook.com/profile.php?id=100011759464028'
+          href='https://www.facebook.com/profile.php?id=61556603980576'
           target='_blank'
         >
           <IconBrandFacebook />
         </Link>
       </li>
-      <li>
+      {/* <li>
         <Link
           href='https://www.instagram.com/rodrigo.vm_444/'
           target='_blank'
         >
           <IconBrandInstagram />
         </Link>
-      </li>
+      </li> */}
     </section>
   )
 }

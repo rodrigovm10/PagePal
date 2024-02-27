@@ -11,8 +11,8 @@ import {
 
 export default function SiteMapPage() {
   return (
-    <main className='container space-y-5 text-white mt-24'>
-      <h1 className='text-center font-bold text-3xl'>Mapa del sitio</h1>
+    <main className='container space-y-5 text-white mt-24 mb-4'>
+      <h1 className='text-center font-bold text-3xl text-black dark:text-white'>Mapa del sitio</h1>
       <h2 className='text-center bg-primary rounded-md p-2 text-lg font-bold'>Principal</h2>
       <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5'>
         <Section
@@ -41,7 +41,7 @@ export default function SiteMapPage() {
         />
       </section>
       <h2 className='text-center bg-primary rounded-md p-2 text-lg font-bold'>Footer</h2>
-      <section className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-5'>
+      <section className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5'>
         <Section
           href='/privacy-pagepal'
           icon={<IconLockSquare />}
@@ -61,19 +61,19 @@ export default function SiteMapPage() {
           description='Página de información sobre PagePal'
         />
         <Section
-          href='https://www.facebook.com/profile.php?id=100011759464028'
+          href='https://www.facebook.com/profile.php?id=61556603980576'
           isBlank
           title='Facebook'
           icon={<IconBrandFacebook />}
           description='Página de facebook de PagePal'
         />
-        <Section
+        {/* <Section
           href='https://www.instagram.com/rodrigo.vm_444/'
           isBlank
           title='Instagram'
           icon={<IconBrandInstagram />}
           description='Página de instagram de PagePal'
-        />
+        /> */}
       </section>
     </main>
   )

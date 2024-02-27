@@ -1,6 +1,6 @@
 export default function PrivacyPage() {
   return (
-    <main className='container mt-20 text-justify text-pretty'>
+    <main className='container mt-24 text-justify text-pretty'>
       <header className='bg-primary py-4 text-center text-white '>
         <h1 className='text-2xl font-bold'>Política de Privacidad</h1>
         <p className='text-sm'>Última actualización: 16 de febrero de 2024</p>

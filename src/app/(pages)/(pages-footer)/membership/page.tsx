@@ -5,7 +5,7 @@ import { PricingCardMonthly } from '@client/components/membership/pricing-card-m
 
 export default function MembershipPage() {
   return (
-    <main className='w-[85vw] lg:w-[70vw] mx-auto'>
+    <main className='container mt-10 md:mt-20'>
       <section className='text-center my-4'>
         <h1
           className='

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { FaFacebook, FaInstagram } from 'react-icons/fa'
+import { IconBrandFacebook, IconBrandInstagram } from '@tabler/icons-react'
 
 export function FooterSocialMedia() {
   return (
@@ -9,7 +9,7 @@ export function FooterSocialMedia() {
           href='https://www.facebook.com/profile.php?id=100011759464028'
           target='_blank'
         >
-          <FaFacebook />
+          <IconBrandFacebook />
         </Link>
       </li>
       <li>
@@ -17,7 +17,7 @@ export function FooterSocialMedia() {
           href='https://www.instagram.com/rodrigo.vm_444/'
           target='_blank'
         >
-          <FaInstagram />
+          <IconBrandInstagram />
         </Link>
       </li>
     </section>

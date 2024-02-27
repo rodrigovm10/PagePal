@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { FaArrowRight } from 'react-icons/fa'
+import { IconArrowNarrowRight } from '@tabler/icons-react'
 import { motion } from 'framer-motion'
 
 export function SectionLinks() {
@@ -38,7 +38,7 @@ export function SectionLinks() {
           className='p-2 text-2xl font-semibold underline bg-primary text-white dark:text-black hover:text-black hover:bg-white dark:hover:text-white dark:hover:bg-black transition-all flex '
         >
           Empezar a leer
-          <FaArrowRight className='my-auto ml-auto ' />
+          <IconArrowNarrowRight className='my-auto ml-auto size-10' />
         </Link>
       </motion.div>
       <motion.div
@@ -58,7 +58,7 @@ export function SectionLinks() {
           className='p-2 text-2xl font-semibold underline bg-primary text-white dark:text-black hover:text-black hover:bg-white dark:hover:text-white dark:hover:bg-black transition-all flex'
         >
           Empezar a escribir
-          <FaArrowRight className='my-auto ml-auto' />
+          <IconArrowNarrowRight className='my-auto ml-auto size-10' />
         </Link>
       </motion.div>
       <motion.div
@@ -78,7 +78,7 @@ export function SectionLinks() {
           className='p-2 text-2xl font-semibold underline bg-primary text-white dark:text-black hover:text-black hover:bg-white dark:hover:text-white dark:hover:bg-black transition-all flex'
         >
           Conviertete en miembro
-          <FaArrowRight className='my-auto ml-auto' />
+          <IconArrowNarrowRight className='my-auto ml-auto size-10' />
         </Link>
       </motion.div>
     </section>

@@ -5,7 +5,7 @@ import { Card, CardContent } from '@client/components/ui/card'
 
 export default async function AuthLayout({ children }: { children: React.ReactNode }) {
   return (
-    <main className='flex items-center justify-center h-full -mt-2 bg-gradient-to-b from-white via-white to-primary/40 dark:bg-gradient-to-b dark:from-black dark:to-[#111]'>
+    <main className='flex items-center justify-center min-h-screen h-screen bg-gradient-to-b from-white via-white to-primary/40 dark:bg-gradient-to-b dark:from-black dark:to-[#111] mt-20'>
       <Card
         className='w-[80%] mx-auto sm:w-auto shadow-lg bg-gradient-to-b from-white via-white to-primary/40
  dark:bg-gradient-to-b dark:from-black dark:to-[#111] '

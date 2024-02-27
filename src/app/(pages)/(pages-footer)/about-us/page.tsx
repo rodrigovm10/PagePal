@@ -4,7 +4,7 @@ import { SectionLinks } from '@/client/components/about-us/section-links'
 
 export default function AboutUsPage() {
   return (
-    <main className='w-[85vw] lg:w-[70vw] mx-auto my-0'>
+    <main className='container mx-auto my-0 mt-5'>
       <SectionAbout />
       <ArticleDescription />
       <SectionLinks />

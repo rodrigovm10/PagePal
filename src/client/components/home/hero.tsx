@@ -7,8 +7,8 @@ import Link from 'next/link'
 export function Hero() {
   return (
     <section
-      className='h-[350px] flex justify-between bg-gradient-to-b from-white via-white to-primary/40
- dark:bg-gradient-to-b dark:from-black dark:to-[#111] border-b'
+      className='h-fit flex justify-between bg-gradient-to-b from-white via-white to-primary/40
+ dark:bg-gradient-to-b dark:from-black dark:to-[#111] border-b mt-16'
     >
       <div
         className='

@@ -1,21 +1,17 @@
-'use client'
-
 import Link from 'next/link'
 import { cn } from '@/client/libs/utils'
-import { ROUTER_SESSION } from '@/client/constants'
-import { usePathname } from 'next/navigation'
 
-export function Routes() {
-  const pathname = usePathname()
+import { ROUTER } from '@/client/constants'
 
+export function Routes({ pathname }: { pathname: string }) {
   return (
     <>
-      {ROUTER_SESSION.map((link, i) => {
+      {ROUTER.map((link, i) => {
         return (
           <li key={i}>
             <Link
               href={link.href}
-              scroll
+              scroll={true}
               className={cn(
                 'opacity-60 hover:opacity-100 transition-all',
                 pathname === `${link.href}` && 'opacity-100 text-primary'

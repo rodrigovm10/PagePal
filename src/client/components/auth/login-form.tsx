@@ -76,7 +76,7 @@ export function LoginForm() {
             />
           </div>
           <FormSuccess message={success} />
-          <FormError message={error ?? urlError} />
+          <FormError message={error || urlError} />
           <Button
             type='submit'
             className='w-full'

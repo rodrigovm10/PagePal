@@ -8,7 +8,8 @@ export const ROUTER = [
 export const ROUTER_FOOTER = [
   { href: '/privacy-pagepal', name: 'Políticas de privacidad' },
   { href: '/terms-pagepal', name: 'Términos y condiciones' },
-  { href: '/about-us', name: 'Sobre nosotros' }
+  { href: '/about-us', name: 'Sobre nosotros' },
+  { href: '/sitemap', name: 'Mapa del sitio' }
 ]
 
 export const ROUTER_SESSION = [{ href: '/new-story', name: 'Escribir' }]

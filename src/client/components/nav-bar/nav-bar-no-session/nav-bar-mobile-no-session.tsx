@@ -1,15 +1,13 @@
 'use client'
 
-import Link from 'next/link'
 import { useState } from 'react'
-import { cn } from '@client/libs/utils'
 import { usePathname } from 'next/navigation'
 import { IoClose, IoMenu } from 'react-icons/io5'
 import { motion, AnimatePresence } from 'framer-motion'
 
-import { ROUTER } from '@client/constants'
 import { ModeToggle } from '@client/components/mode-toggle'
 import { LinkPagepal } from '@client/components/link-pagepal'
+import { Routes } from '@/client/components/nav-bar/nav-bar-no-session/routes'
 
 export function NavBarMobileNoSession() {
   const pathname = usePathname()
@@ -38,20 +36,8 @@ export function NavBarMobileNoSession() {
             transition={{ ease: 'easeInOut' }}
             className='p-2'
           >
-            <ul className={cn('flex flex-col justify-between gap-x-5 items-center font-thin ')}>
-              {ROUTER.map((link, i) => (
-                <Link
-                  key={i}
-                  href={link.href}
-                  scroll
-                  className={cn(
-                    'opacity-60 hover:opacity-100 transition-all',
-                    pathname === `${link.href}` && 'opacity-100 text-primary'
-                  )}
-                >
-                  {link.name}
-                </Link>
-              ))}
+            <ul className='flex flex-col justify-between gap-x-5 items-center font-thin'>
+              <Routes pathname={pathname} />
               <li className='self-center'>
                 <ModeToggle />
               </li>

@@ -3,24 +3,25 @@
 import { db } from '@server/db/db'
 import { getUserByEmail } from '../data/user'
 import { getVerificationTokenByToken } from '../data/verification-token'
+import { MESSAGES_ERROR_SUCCESS } from '../libs/constants'
 
 export const newVerification = async ({ token }: { token: string }) => {
   const existingToken = await getVerificationTokenByToken({ token })
 
   if (!existingToken) {
-    return { error: 'El token no existe' }
+    return { error: MESSAGES_ERROR_SUCCESS.TOKEN_DOESNT_EXIST }
   }
 
   const hasExpired = new Date(existingToken.expires) < new Date()
 
   if (hasExpired) {
-    return { error: 'El token ha expirado' }
+    return { error: MESSAGES_ERROR_SUCCESS.TOKEN_HAS_EXPIRED }
   }
 
   const existingUser = await getUserByEmail({ email: existingToken.email })
 
   if (!existingUser) {
-    return { error: 'El email no existe' }
+    return { error: MESSAGES_ERROR_SUCCESS.EMAIL_DOESNT_EXIST }
   }
 
   await db.user.update({
@@ -35,5 +36,5 @@ export const newVerification = async ({ token }: { token: string }) => {
     where: { id: existingToken.id }
   })
 
-  return { success: 'Email verificado' }
+  return { success: MESSAGES_ERROR_SUCCESS.EMAIL_VERIFIED }
 }

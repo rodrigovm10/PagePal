@@ -7,6 +7,7 @@ import { signIn } from '@/server/auth/auth'
 import { LoginSchema } from '@/client/schemas'
 import { getUserByEmail } from '@/server/data/user'
 import { comparePasswords } from '@/server/libs/bcrypt'
+import { MESSAGES_ERROR_SUCCESS } from '../libs/constants'
 import { generateVerificationToken } from '../libs/tokens'
 import { sendVerificationEmail } from '@/server/libs/mail'
 import { DEFAULT_LOGIN_REDIRECT } from '@/server/auth/routes'
@@ -24,7 +25,7 @@ export const login = async ({ values }: loginProps) => {
   const existingUser = await getUserByEmail({ email })
 
   if (!existingUser || !existingUser.email || !existingUser.password) {
-    return { error: 'La cuenta ingresada no existe' }
+    return { error: MESSAGES_ERROR_SUCCESS.ACCOUNT_DOESNT_EXIST }
   }
 
   const passwordCompared = await comparePasswords({
@@ -33,7 +34,7 @@ export const login = async ({ values }: loginProps) => {
   })
 
   if (!passwordCompared) {
-    return { error: 'El correo o la contraseña es incorrecto' }
+    return { error: MESSAGES_ERROR_SUCCESS.EMAIL_PASSWORD_WRONG }
   }
 
   if (!existingUser.emailVerified) {
@@ -43,7 +44,7 @@ export const login = async ({ values }: loginProps) => {
       token: verificationToken.token
     })
 
-    return { success: 'Se envío un correo de verificación' }
+    return { success: MESSAGES_ERROR_SUCCESS.EMAIL_VERIFICATION_SENT }
   }
 
   // if (!captcha) {

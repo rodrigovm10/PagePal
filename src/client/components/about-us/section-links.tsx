@@ -53,7 +53,7 @@ export function SectionLinks() {
         custom={2}
       >
         <Link
-          href='/login'
+          href='/auth/login'
           scroll
           className='p-2 text-2xl font-semibold underline bg-primary text-white dark:text-black hover:text-black hover:bg-white dark:hover:text-white dark:hover:bg-black transition-all flex'
         >

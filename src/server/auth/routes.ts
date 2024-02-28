@@ -11,7 +11,7 @@ export const publicRoutes = [
   '/not-found',
   '/terms-pagepal',
   '/privacy-pagepal',
-  '/new-verification'
+  '/auth/new-verification'
 ]
 
 export const loginRoutes = ['/new-story']
@@ -21,7 +21,12 @@ export const loginRoutes = ['/new-story']
  * These routes will redirect logged in users to /
  * @type {string[]}
  */
-export const authRoutes = ['/login', '/register']
+export const authRoutes = [
+  '/auth/login',
+  '/auth/register',
+  '/auth/reset-password',
+  '/auth/new-password'
+]
 
 /**
  * The prefix for API authentication routes

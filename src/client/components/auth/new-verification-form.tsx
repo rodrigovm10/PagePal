@@ -43,7 +43,7 @@ export function NewVerificationForm() {
     <CardWrapper
       headerLabel='Confirma tu código de verificación'
       backButtonLabel='Regresar al inicio de sesión'
-      backButtonHref='/login'
+      backButtonHref='/auth/login'
       showSocial={false}
     >
       <div className='flex items-center w-full justify-center'>

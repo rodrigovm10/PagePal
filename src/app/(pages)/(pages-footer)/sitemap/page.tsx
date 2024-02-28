@@ -28,13 +28,13 @@ export default function SiteMapPage() {
           description='Página de información sobre las membresías de PagePal'
         />
         <Section
-          href='/login'
+          href='/auth/login'
           title='Iniciar sesión'
           icon={<IconLogin2 />}
           description='Página para iniciar sesión en PagePal'
         />
         <Section
-          href='/register'
+          href='/auth/register'
           title='Registrate'
           icon={<IconDiamond />}
           description='Página para registrarse en PagePal'

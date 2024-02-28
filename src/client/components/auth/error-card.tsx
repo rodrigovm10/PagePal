@@ -5,7 +5,7 @@ export function ErrorCard() {
   return (
     <CardWrapper
       headerLabel='Algo sucedio mal!'
-      backButtonHref='/login'
+      backButtonHref='/auth/login'
       backButtonLabel='Regresar al login'
     >
       <div className='w-full flex justify-center items-center'>

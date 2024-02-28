@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import ReCAPTCHA from 'react-google-recaptcha'
 import { useSearchParams } from 'next/navigation'
 import { useLoginForm } from '@/client/hooks/useLoginForm'
@@ -71,6 +72,14 @@ export function LoginForm() {
                       type='password'
                     />
                   </FormControl>
+                  <Button
+                    size='sm'
+                    variant='link'
+                    asChild
+                    className='px-0 font-normal'
+                  >
+                    <Link href={'/auth/reset-password'}>¿Olvidaste tu contraseña?</Link>
+                  </Button>
                   <FormMessage />
                 </FormItem>
               )}

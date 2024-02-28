@@ -5,12 +5,13 @@
  */
 export const publicRoutes = [
   '/',
+  '/error',
   '/membership',
   '/about-us',
-  '/privacy-pagepal',
-  '/terms-pagepal',
   '/not-found',
-  '/error'
+  '/terms-pagepal',
+  '/privacy-pagepal',
+  '/new-verification'
 ]
 
 export const loginRoutes = ['/new-story']

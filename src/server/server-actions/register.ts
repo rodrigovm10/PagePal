@@ -5,6 +5,8 @@ import type * as z from 'zod'
 import { db } from '@/server/db/db'
 import { hashPassword } from '../libs/bcrypt'
 import { RegisterSchema } from '@/client/schemas'
+import { generateVerificationToken } from '@/server/libs/tokens'
+import { sendVerificationEmail } from '@/server/libs/mail'
 
 export const register = async ({ values }: { values: z.infer<typeof RegisterSchema> }) => {
   const validateFields = RegisterSchema.safeParse(values)
@@ -19,7 +21,7 @@ export const register = async ({ values }: { values: z.infer<typeof RegisterSche
     where: { email }
   })
 
-  if (existingUser !== null) return { error: 'El correo ya ha sido registrado' }
+  if (existingUser) return { error: 'El correo ya ha sido registrado' }
 
   await db.user.create({
     data: {
@@ -28,6 +30,9 @@ export const register = async ({ values }: { values: z.infer<typeof RegisterSche
       password: hashedPassword
     }
   })
+
+  const verificationToken = await generateVerificationToken({ email })
+  await sendVerificationEmail({ email: verificationToken.email, token: verificationToken.token })
 
   return { success: 'Se envío un correo de verificación' }
 

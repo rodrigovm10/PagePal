@@ -1,7 +1,7 @@
-export function LoadingPage() {
+export function LoadingPage({ showTitle = true }: { showTitle?: boolean }) {
   return (
     <div className='flex flex-col gap-y-5 justify-center items-center h-[90%]'>
-      <h1 className='text-2xl font-bold'>PagePal</h1>
+      {showTitle && <h1 className='text-2xl font-bold'>PagePal</h1>}
       <div role='status'>
         <svg
           aria-hidden='true'

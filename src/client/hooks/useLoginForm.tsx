@@ -9,6 +9,7 @@ import { login } from '@server/server-actions/login'
 export function useLoginForm() {
   const [error, setError] = useState<string | undefined>('')
   const [success, setSuccess] = useState<string | undefined>('')
+  const [captcha, setCaptcha] = useState<string | null | undefined>()
 
   const [isPending, startTransition] = useTransition()
 
@@ -31,5 +32,5 @@ export function useLoginForm() {
     })
   }
 
-  return { error, success, isPending, form, handleSubmit }
+  return { error, success, isPending, form, setCaptcha, handleSubmit }
 }

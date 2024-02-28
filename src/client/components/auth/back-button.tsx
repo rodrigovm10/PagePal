@@ -16,7 +16,12 @@ export function BackButton({ href, label }: BackButtonProps) {
       size='sm'
       asChild
     >
-      <Link href={href}>{label}</Link>
+      <Link
+        href={href}
+        scroll
+      >
+        {label}
+      </Link>
     </Button>
   )
 }

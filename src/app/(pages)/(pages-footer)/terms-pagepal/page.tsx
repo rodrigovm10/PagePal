@@ -1,6 +1,16 @@
+import { BreadCrumbs } from '@/client/components/breadcrumbs'
+type Path = {
+  name: string
+  href: string
+}
+const paths: Path[] = [
+  { name: 'Inicio', href: '/' },
+  { name: 'Términos y condiciones', href: '/terms-pagepal' }
+]
 export default function TermsPage() {
   return (
     <main className='container mt-24 text-justify text-pretty'>
+      <BreadCrumbs paths={paths} />
       <header className='bg-primary py-4 text-center text-white '>
         <h1 className='text-2xl font-bold'>Términos y Condiciones de Uso</h1>
         <p className='text-sm'>Última actualización: 16 de febrero de 2024</p>

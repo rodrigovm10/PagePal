@@ -1,7 +1,8 @@
 'use client'
 
-import { useLoginForm } from '@/client/hooks/useLoginForm'
+import ReCAPTCHA from 'react-google-recaptcha'
 import { useSearchParams } from 'next/navigation'
+import { useLoginForm } from '@/client/hooks/useLoginForm'
 
 import {
   Form,
@@ -18,7 +19,7 @@ import { FormError } from '@client/components/auth/form-error'
 import { CardWrapper } from '@client/components/auth/card-wrapper'
 
 export function LoginForm() {
-  const { form, handleSubmit, error, isPending, success } = useLoginForm()
+  const { form, handleSubmit, error, isPending, success, setCaptcha } = useLoginForm()
   const searchParams = useSearchParams()
   const urlError =
     searchParams.get('error') === 'OAuthAccountNotLinked'
@@ -77,6 +78,7 @@ export function LoginForm() {
           </div>
           <FormSuccess message={success} />
           <FormError message={error || urlError} />
+
           <Button
             type='submit'
             className='w-full'

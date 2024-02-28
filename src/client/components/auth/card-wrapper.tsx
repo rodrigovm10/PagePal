@@ -24,7 +24,7 @@ export function CardWrapper({
         <Header label={headerLabel} />
       </CardHeader>
       <CardContent>{children}</CardContent>
-      {showSocial !== null && (
+      {showSocial && (
         <CardFooter>
           <Social />
         </CardFooter>

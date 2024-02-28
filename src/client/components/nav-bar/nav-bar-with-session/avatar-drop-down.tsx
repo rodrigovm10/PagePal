@@ -13,14 +13,12 @@ import { LogOut } from '@client/components/auth/log-out'
 import { Avatar, AvatarImage } from '@client/components/ui/avatar'
 
 export function AvatarDropDown({ session }: { session: Session | null }) {
-  if (!session?.user.image) return
-
   return (
     <Suspense fallback={<div className='text-black'>cargando...</div>}>
       <DropdownMenu>
         <DropdownMenuTrigger>
           <Avatar>
-            <AvatarImage src={session?.user.image} />
+            <AvatarImage src={session?.user.image ?? 'https://github.com/shadcn.png'} />
           </Avatar>
         </DropdownMenuTrigger>
         <DropdownMenuContent>

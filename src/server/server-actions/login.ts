@@ -2,14 +2,19 @@
 
 import type * as z from 'zod'
 import { AuthError } from 'next-auth'
-import { signIn } from '@/server/auth/auth'
 
+import { signIn } from '@/server/auth/auth'
 import { LoginSchema } from '@/client/schemas'
 import { getUserByEmail } from '@/server/data/user'
+import { comparePasswords } from '@/server/libs/bcrypt'
+import { generateVerificationToken } from '../libs/tokens'
+import { sendVerificationEmail } from '@/server/libs/mail'
 import { DEFAULT_LOGIN_REDIRECT } from '@/server/auth/routes'
-import { comparePasswords } from '../libs/bcrypt'
+interface loginProps {
+  values: z.infer<typeof LoginSchema>
+}
 
-export const login = async ({ values }: { values: z.infer<typeof LoginSchema> }) => {
+export const login = async ({ values }: loginProps) => {
   const validateFields = LoginSchema.safeParse(values)
 
   if (!validateFields.success) return { error: 'Campos invalidos' }
@@ -18,7 +23,7 @@ export const login = async ({ values }: { values: z.infer<typeof LoginSchema> })
 
   const existingUser = await getUserByEmail({ email })
 
-  if (existingUser === null) {
+  if (!existingUser || !existingUser.email || !existingUser.password) {
     return { error: 'La cuenta ingresada no existe' }
   }
 
@@ -31,6 +36,20 @@ export const login = async ({ values }: { values: z.infer<typeof LoginSchema> })
     return { error: 'El correo o la contraseña es incorrecto' }
   }
 
+  if (!existingUser.emailVerified) {
+    const verificationToken = await generateVerificationToken({ email: existingUser.email })
+    await sendVerificationEmail({
+      email: verificationToken.email,
+      token: verificationToken.token
+    })
+
+    return { success: 'Se envío un correo de verificación' }
+  }
+
+  // if (!captcha) {
+  //   return { error: 'Es necesario validar el captcha.' }
+  // }
+
   try {
     await signIn('credentials', {
       email,
@@ -38,6 +57,7 @@ export const login = async ({ values }: { values: z.infer<typeof LoginSchema> })
       redirectTo: DEFAULT_LOGIN_REDIRECT
     })
   } catch (error) {
+    console.log(error)
     if (error instanceof AuthError) {
       if (error.type === 'CredentialsSignin') {
         return { error: 'Invalid credentials!' }

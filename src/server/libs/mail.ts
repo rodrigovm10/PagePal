@@ -7,13 +7,11 @@ export const sendVerificationEmail = async ({ email, token }: { email: string; t
   const confirmLink = `${DOMAIN}/auth/new-verification?token=${token}`
 
   await resend.emails.send({
-    from: 'Acme <onboarding@resend.dev>',
+    from: 'PagePal <no-reply@pagepal.site>',
     to: email,
     subject: 'Confirm your email',
     html: `<p>Click <a href="${confirmLink}">here to confirm email.</a></p>`
   })
-  console.log(DOMAIN)
-  console.log('enviado')
 }
 
 export const sendPasswordResetEmail = async ({
@@ -28,7 +26,7 @@ export const sendPasswordResetEmail = async ({
   console.log(DOMAIN)
   console.log('enviado')
   await resend.emails.send({
-    from: 'Acme <onboarding@resend.dev>',
+    from: 'PagePal <no-reply@pagepal.site>',
     to: email,
     subject: 'Reset your password',
     html: `<p>Click <a href="${resetLink}">here to reset password.</a></p>`

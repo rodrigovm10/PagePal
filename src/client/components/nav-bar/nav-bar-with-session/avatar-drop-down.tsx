@@ -10,7 +10,7 @@ import {
   DropdownMenuTrigger
 } from '@client/components/ui/dropdown-menu'
 import { LogOut } from '@client/components/auth/log-out'
-import { Avatar, AvatarImage } from '@client/components/ui/avatar'
+import { Avatar, AvatarFallback, AvatarImage } from '@client/components/ui/avatar'
 
 export function AvatarDropDown({ session }: { session: Session | null }) {
   return (
@@ -18,7 +18,8 @@ export function AvatarDropDown({ session }: { session: Session | null }) {
       <DropdownMenu>
         <DropdownMenuTrigger>
           <Avatar>
-            <AvatarImage src={session?.user.image ?? 'https://github.com/shadcn.png'} />
+            <AvatarImage src={session?.user.image ?? ''} />
+            <AvatarFallback>{session?.user.name?.charAt(0).toUpperCase()}</AvatarFallback>
           </Avatar>
         </DropdownMenuTrigger>
         <DropdownMenuContent>

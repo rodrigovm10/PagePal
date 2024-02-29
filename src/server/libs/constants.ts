@@ -13,3 +13,19 @@ export const MESSAGES_ERROR_SUCCESS = {
   INVALID_TOKEN: 'El token no es válido.',
   PASSWORD_UPDATED: 'La contraseña ha sido actualizada.'
 }
+
+export const FOLLOW_AND_UNFOLLOW_CATEGORY_SCHEMA_MESSAGES = {
+  CATEGORY_NAME_REQUIRED: 'Category name is required',
+  CATEGORY_NAME_LENGTH: 'Category name must be at least 3 characters long',
+  USER_EMAIL_REQUIRED: 'User email is required',
+  USER_EMAIL_LENGTH: 'User email is not valid'
+}
+
+export const FOLLOW_AND_UNFOLLOW_USER_SCHEMA_MESSAGES = {
+  ID_REQUIRED: 'Category name is required'
+}
+
+export const API_ERROR_MESSAGES = {
+  FOLLOW_CATEGORY: 'Error al seguir la categoría:',
+  UNFOLLOW_CATEGORY: 'Error al dejar de seguir la categoría:'
+}

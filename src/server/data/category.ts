@@ -9,7 +9,7 @@ export const getCategory = async ({ name }: { name: string }) => {
 
     return category
   } catch (error) {
-    console.log('Error al obtener las cateogrias', error)
+    console.log('Error al obtener la categoria', error)
   }
 }
 

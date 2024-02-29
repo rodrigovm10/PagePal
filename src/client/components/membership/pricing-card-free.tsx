@@ -1,3 +1,5 @@
+'use client'
+
 import { FaCheckCircle } from 'react-icons/fa'
 
 import { CardPricingWrapper } from '@client/components/membership/card-pricing-wrapper'
@@ -23,3 +25,4 @@ export function PricingCardFree() {
     </CardPricingWrapper>
   )
 }
+;('')

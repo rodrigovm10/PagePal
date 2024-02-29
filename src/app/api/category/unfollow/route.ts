@@ -2,12 +2,13 @@ import { db } from '@/server/db/db'
 import { NextResponse } from 'next/server'
 import { getUserByEmail } from '@/server/data/user'
 import { getCategory } from '@/server/data/category'
-import { followAndUnfollowSchema } from '@/server/schemas/follow-unfollow'
+import { followAndUnfollowCategorySchema } from '@/server/schemas'
+import { API_ERROR_MESSAGES } from '@/server/libs/constants'
 
 export async function PUT(request: Request) {
   try {
     const body = await request.json()
-    const result = followAndUnfollowSchema.safeParse(body)
+    const result = followAndUnfollowCategorySchema.safeParse(body)
 
     if (!result.success) {
       return NextResponse.json({
@@ -50,7 +51,7 @@ export async function PUT(request: Request) {
       status: 201
     })
   } catch (error) {
-    console.error('Error al dejar de seguir la categoría:', error)
+    console.error(API_ERROR_MESSAGES.UNFOLLOW_CATEGORY, error)
     throw error
   }
 }

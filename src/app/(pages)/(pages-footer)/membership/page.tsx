@@ -1,3 +1,4 @@
+import { BreadCrumbs } from '@/client/components/breadcrumbs'
 import { TextWavy } from '@/client/components/text-wavy'
 import { PricingCardAnually } from '@client/components/membership/pricing-card-anually'
 import { PricingCardFree } from '@client/components/membership/pricing-card-free'
@@ -6,6 +7,7 @@ import { PricingCardMonthly } from '@client/components/membership/pricing-card-m
 export default function MembershipPage() {
   return (
     <main className='container mt-10 md:mt-20'>
+      <BreadCrumbs name='Membresía' />
       <section className='text-center my-4'>
         <h1
           className='

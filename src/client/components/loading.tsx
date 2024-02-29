@@ -1,6 +1,13 @@
+import { cn } from '../libs/utils'
+
 export function LoadingPage({ showTitle = true }: { showTitle?: boolean }) {
   return (
-    <div className='flex flex-col gap-y-5 justify-center items-center h-[90%]'>
+    <div
+      className={cn(
+        'flex flex-col gap-y-5 justify-center items-center h-[90%] mt-20',
+        showTitle && 'mt-auto'
+      )}
+    >
       {showTitle && <h1 className='text-2xl font-bold'>PagePal</h1>}
       <div role='status'>
         <svg

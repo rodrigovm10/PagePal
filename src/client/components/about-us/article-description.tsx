@@ -20,7 +20,7 @@ export function ArticleDescription() {
         <p className='mt-4 md:mt-0'>
           En lugar de vender anuncios o tus datos, nos respalda una{' '}
           <Link
-            href='/register'
+            href='/auth/register'
             scroll
             className='underline text-primary font-black hover:animate-pulse'
           >

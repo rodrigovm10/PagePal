@@ -1,6 +1,6 @@
 import { SectionAbout } from '@/client/components/about-us/section-about'
-import { ArticleDescription } from '@/client/components/about-us/article-description'
 import { SectionLinks } from '@/client/components/about-us/section-links'
+import { ArticleDescription } from '@/client/components/about-us/article-description'
 
 export default function AboutUsPage() {
   return (

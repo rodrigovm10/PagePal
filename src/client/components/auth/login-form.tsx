@@ -30,7 +30,7 @@ export function LoginForm() {
   return (
     <CardWrapper
       headerLabel='Bienvenido de vuelta'
-      backButtonHref='/register'
+      backButtonHref='/auth/register'
       backButtonLabel='¿No tienes cuenta?'
       showSocial
     >

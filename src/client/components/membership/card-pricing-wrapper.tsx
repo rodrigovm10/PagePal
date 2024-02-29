@@ -40,7 +40,7 @@ export function CardPricingWrapper({
       <CardContent>{children}</CardContent>
       <CardFooter className='flex justify-center mt-5'>
         <Link
-          href='/register'
+          href='/auth/register'
           scroll
         >
           <Button

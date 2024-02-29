@@ -19,5 +19,6 @@ export async function POST(request: Request) {
     //     }
     //   }
     // })
+    return true
   } catch (error) {}
 }

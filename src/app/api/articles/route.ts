@@ -18,5 +18,7 @@ export async function GET(request: Request) {
     )
 
     return NextResponse.json(newArticles)
-  } catch (error) {}
+  } catch (error) {
+    return NextResponse.json({ message: '[API_ARTICLE_GET]', error })
+  }
 }

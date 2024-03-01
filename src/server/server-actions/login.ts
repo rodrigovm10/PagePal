@@ -47,10 +47,6 @@ export const login = async ({ values }: loginProps) => {
     return { success: MESSAGES_ERROR_SUCCESS.EMAIL_VERIFICATION_SENT }
   }
 
-  // if (!captcha) {
-  //   return { error: 'Es necesario validar el captcha.' }
-  // }
-
   try {
     await signIn('credentials', {
       email,

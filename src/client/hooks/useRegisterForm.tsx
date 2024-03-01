@@ -9,6 +9,7 @@ import { register } from '@server/server-actions/register'
 export function useRegisterForm() {
   const [error, setError] = useState<string | undefined>('')
   const [success, setSuccess] = useState<string | undefined>('')
+  const [captcha, setCaptcha] = useState<string | null | undefined>()
 
   const [isPending, startTransition] = useTransition()
 
@@ -25,7 +26,12 @@ export function useRegisterForm() {
   const handleSubmit = (values: z.infer<typeof RegisterSchema>) => {
     setError('')
     setSuccess('')
+    if (!captcha) {
+      setError('Es necesario validar el captcha.')
+      return
+    }
     startTransition(() => {
+      setError('')
       register({ values }).then(data => {
         setError(data?.error)
         setSuccess(data?.success)
@@ -33,5 +39,5 @@ export function useRegisterForm() {
     })
   }
 
-  return { error, success, isPending, form, handleSubmit }
+  return { error, success, isPending, form, handleSubmit, setCaptcha }
 }

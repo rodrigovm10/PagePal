@@ -1,5 +1,6 @@
 'use client'
 
+import ReCAPTCHA from 'react-google-recaptcha'
 import { useRegisterForm } from '@/client/hooks/useRegisterForm'
 
 import {
@@ -17,7 +18,7 @@ import { FormError } from '@client/components/auth/form-error'
 import { CardWrapper } from '@client/components/auth/card-wrapper'
 
 export function RegisterForm() {
-  const { form, error, success, isPending, handleSubmit } = useRegisterForm()
+  const { form, error, success, isPending, handleSubmit, setCaptcha } = useRegisterForm()
 
   return (
     <CardWrapper
@@ -89,6 +90,11 @@ export function RegisterForm() {
           </div>
           <FormSuccess message={success} />
           <FormError message={error} />
+          <ReCAPTCHA
+            sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE!}
+            className='mx-auto'
+            onChange={setCaptcha}
+          />
           <Button
             disabled={isPending}
             type='submit'

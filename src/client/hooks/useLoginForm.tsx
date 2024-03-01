@@ -24,7 +24,13 @@ export function useLoginForm() {
   const handleSubmit = (values: z.infer<typeof LoginSchema>) => {
     setError('')
     setSuccess('')
+    if (!captcha) {
+      setError('Es necesario validar el captcha.')
+      return
+    }
+
     startTransition(() => {
+      setError('')
       login({ values }).then(data => {
         setError(data?.error)
         setSuccess(data?.success)

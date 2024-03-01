@@ -87,7 +87,11 @@ export function LoginForm() {
           </div>
           <FormSuccess message={success} />
           <FormError message={error || urlError} />
-
+          <ReCAPTCHA
+            sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE!}
+            className='mx-auto'
+            onChange={setCaptcha}
+          />
           <Button
             type='submit'
             className='w-full'

@@ -1,5 +1,4 @@
-import type { UserRole } from '@prisma/client'
-
+import type { UserRole, Article as ArticlePrisma } from '@prisma/client'
 export interface User {
   id: string
   name: string | null
@@ -15,4 +14,8 @@ export interface Category {
   id: number
   name: string
   followers: number
+}
+
+export interface Article extends ArticlePrisma {
+  categories: Category[]
 }

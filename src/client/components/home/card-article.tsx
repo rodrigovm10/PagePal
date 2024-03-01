@@ -1,8 +1,12 @@
-import { CardContent, CardDescription, CardFooter, CardTitle } from '@client/components/ui/card'
 import Image from 'next/image'
-import favicon from '@/app/favicon.ico'
+import type { Article } from '@/types/types'
 
-export function CardArticle() {
+import { Badge } from '../ui/badge'
+import favicon from '@/app/favicon.ico'
+import { IconStar } from '@tabler/icons-react'
+import { CardContent, CardDescription, CardFooter, CardTitle } from '@client/components/ui/card'
+
+export function CardArticle({ article }: { article: Article }) {
   return (
     <article className='cursor-pointer'>
       <article className='flex justify-between'>
@@ -15,14 +19,21 @@ export function CardArticle() {
               width='0'
               height='0'
             />
-            <p className='text-sm'>The Nib</p>
+            <p className='text-sm flex'>
+              The Nib{'  '}
+              {article.isPremium && (
+                <span className='opacity-80 flex items-center gap-x-1'>
+                  {' '}
+                  ·
+                  <IconStar className='size-3 text-yellow-300 ' />
+                  <span>Solo miembros</span>·
+                  <span className='text-[12px] opacity-60'>{article.publishDate}</span>
+                </span>
+              )}
+            </p>
           </div>
-          <CardTitle className='text-lg md:text-2xl'>
-            Martin Luther King Jr Was More Radical Than You Think
-          </CardTitle>
-          <CardDescription className='hidden md:block'>
-            On MLK Day, t’s time to remember who he really was.
-          </CardDescription>
+          <CardTitle className='text-lg md:text-2xl'>{article.title}</CardTitle>
+          <CardDescription className='hidden md:block'>{article.content}</CardDescription>
         </section>
         <CardContent className='flex justify-center items-center'>
           <img
@@ -33,7 +44,7 @@ export function CardArticle() {
         </CardContent>
       </article>
       <CardFooter>
-        <p className='text-[12px] opacity-80'>Jan 21, 2019</p>
+        <Badge className='mx-0'>React</Badge>
       </CardFooter>
     </article>
   )

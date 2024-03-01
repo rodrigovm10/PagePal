@@ -1,11 +1,13 @@
 import Link from 'next/link'
 import { cn } from '@/client/libs/utils'
+import type { Category } from '@prisma/client'
 import { ROUTER_FOOTER } from '@/client/constants'
 
+import { Suspense } from 'react'
 import { Separator } from '../ui/separator'
 import { badgeVariants } from '@client/components/ui/badge'
 import { AccountsToFollow } from './accounts-to-follow'
-import type { Category } from '@prisma/client'
+import { SkeletonAside } from '../skeletons/aside-skeleton'
 import { FooterSocialMedia } from '../footer/footer-social-media'
 
 interface AsideProps {
@@ -33,7 +35,10 @@ export function AsideAccountsToFollow({ categories }: AsideProps) {
             </section>
           </section>
           <Separator />
-          <AccountsToFollow />
+          <Suspense fallback={<SkeletonAside />}>
+            <AccountsToFollow />
+          </Suspense>
+
           <Separator />
           <section className='hidden lg:block'>
             <ul className='flex flex-col md:flex-row justify-between gap-x-5 items-center '>

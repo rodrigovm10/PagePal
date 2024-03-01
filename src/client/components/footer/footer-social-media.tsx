@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { IconBrandFacebook, IconBrandInstagram } from '@tabler/icons-react'
+import { IconBrandFacebook } from '@tabler/icons-react'
 
 export function FooterSocialMedia() {
   return (

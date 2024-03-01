@@ -1,5 +1,4 @@
-import type { Category } from '@/types/types'
-import { getAllCategories, getCategory } from '@/server/data/category'
+import { getCategory } from '@/server/data/category'
 import { Separator } from '@/client/components/ui/separator'
 import { FollowButton } from '@/client/components/category/follow-button'
 import { auth } from '@/server/auth/auth'

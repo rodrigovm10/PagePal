@@ -1,6 +1,6 @@
 'use server'
 
-import { z } from 'zod'
+import type { z } from 'zod'
 
 import { hashPassword } from '../libs/bcrypt'
 import { getUserByEmail } from '../data/user'

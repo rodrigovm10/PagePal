@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/prefer-nullish-coalescing */
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 'use client'
 
 import ReCAPTCHA from 'react-google-recaptcha'

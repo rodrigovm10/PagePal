@@ -5,8 +5,7 @@ import {
   IconLogin2,
   IconLockSquare,
   IconShield,
-  IconBrandFacebook,
-  IconBrandInstagram
+  IconBrandFacebook
 } from '@tabler/icons-react'
 
 export default function SiteMapPage() {

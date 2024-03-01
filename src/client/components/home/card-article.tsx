@@ -27,7 +27,7 @@ export function CardArticle({ article }: { article: Article }) {
                   ·
                   <IconStar className='size-3 text-yellow-300 ' />
                   <span>Solo miembros</span>·
-                  <span className='text-[12px] opacity-60'>{article.publishDate}</span>
+                  <span className='text-[12px] opacity-60'>{article.publishDate.toString()}</span>
                 </span>
               )}
             </p>

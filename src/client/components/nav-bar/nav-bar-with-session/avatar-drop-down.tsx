@@ -9,6 +9,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger
 } from '@client/components/ui/dropdown-menu'
+// import { IconLibrary, IconArticle, IconUser } from '@tabler/icons-react'
 import { LogOut } from '@client/components/auth/log-out'
 import { Avatar, AvatarFallback, AvatarImage } from '@client/components/ui/avatar'
 
@@ -29,6 +30,7 @@ export function AvatarDropDown({ session }: { session: Session | null }) {
           <DropdownMenuItem>
             <LogOut />
           </DropdownMenuItem>
+          <DropdownMenuItem>{session?.user.email}</DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
     </Suspense>

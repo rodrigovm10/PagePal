@@ -11,7 +11,7 @@ export const getArticles = async ({
   try {
     const response = await axios.get(`${domain}api/articles/?search=${search}`)
     const articles = response.data
-    console.log(articles)
+
     return articles
   } catch (error) {
     console.log(error)

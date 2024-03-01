@@ -8,7 +8,7 @@ export function Hero() {
   return (
     <section
       className='h-fit flex justify-between bg-gradient-to-b from-white via-white to-primary/40
- dark:bg-gradient-to-b dark:from-black dark:to-[#111] border-b mt-16'
+ dark:bg-gradient-to-b dark:from-black dark:to-[#111] border-b mt-16 pb-5 lg:pb-0'
     >
       <div
         className='
@@ -41,7 +41,7 @@ export function Hero() {
 
         <Link
           href='#start-read'
-          className='bg-primary text-primary-foreground hover:bg-primary/90 rounded-full max-w-full w-fit self-center lg:self-auto text-lg px-4 py-2'
+          className='bg-primary text-primary-foreground hover:bg-primary/90 rounded-full max-w-full w-fit self-center lg:self-auto text-lg px-4 py-2 '
         >
           Empezar a leer
         </Link>

@@ -12,8 +12,6 @@ export async function GET(request: Request) {
       return NextResponse.json(articles)
     }
 
-    console.log(articles)
-
     const newArticles = articles.filter(
       article =>
         article.categories.toLowerCase().includes(asa) ||

@@ -9,9 +9,9 @@ export const getArticles = async ({
   search: string | undefined
 }): Promise<Article[] | undefined> => {
   try {
-    const response = await axios.get(`${domain}/api/articles/?search=${search}`)
+    const response = await axios.get(`${domain}api/articles/?search=${search}`)
     const articles = response.data
-
+    console.log(articles)
     return articles
   } catch (error) {
     console.log(error)

@@ -1,6 +1,6 @@
 'use server'
 
-import { z } from 'zod'
+import type { z } from 'zod'
 
 import { ResetSchema } from '@/client/schemas'
 import { getUserByEmail } from '../data/user'

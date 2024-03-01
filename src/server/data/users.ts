@@ -4,7 +4,7 @@ const domain = process.env.NEXT_PUBLIC_APP_URL
 
 export const getUsers = async () => {
   try {
-    const response = await axios.get(`${domain}/api/users`)
+    const response = await axios.get(`${domain}api/users`)
     const users = response.data
 
     return users
@@ -15,7 +15,7 @@ export const getUsers = async () => {
 
 export const followUser = async ({ id }: { id: string }) => {
   try {
-    const response = await axios.post(`${domain}/api/users/follow`, { id })
+    const response = await axios.post(`${domain}api/users/follow`, { id })
     const user = response.data
 
     console.log(user)

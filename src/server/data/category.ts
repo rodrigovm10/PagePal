@@ -4,7 +4,7 @@ const domain = process.env.NEXT_PUBLIC_APP_URL
 
 export const getCategory = async ({ name }: { name: string }) => {
   try {
-    const response = await axios.get(`${domain}/api/category/${name}`)
+    const response = await axios.get(`${domain}api/category/${name}`)
     const category = response.data
 
     return category
@@ -15,7 +15,7 @@ export const getCategory = async ({ name }: { name: string }) => {
 
 export const getAllCategories = async () => {
   try {
-    const response = await axios.get(`${domain}/api/category?order=followers`)
+    const response = await axios.get(`${domain}api/category?order=followers`)
     const categories = response.data
 
     return categories
@@ -32,7 +32,7 @@ export const followCategory = async ({
   userEmail: string | null | undefined
 }) => {
   try {
-    await axios.put(`${domain}/api/category/follow`, {
+    await axios.put(`${domain}api/category/follow`, {
       categoryName,
       userEmail
     })
@@ -49,7 +49,7 @@ export const unfollowCategory = async ({
   userEmail: string | null | undefined
 }) => {
   try {
-    await axios.put(`${domain}/api/category/unfollow`, {
+    await axios.put(`${domain}api/category/unfollow`, {
       categoryName,
       userEmail
     })

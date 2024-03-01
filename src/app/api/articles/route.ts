@@ -1,4 +1,4 @@
-import articles from '@/../public/articles.json'
+import articles from './../../../../public/articles.json'
 import { NextResponse } from 'next/server'
 
 export async function GET(request: Request) {

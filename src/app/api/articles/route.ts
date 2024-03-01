@@ -1,6 +1,8 @@
 import articles from './../../../articles.json'
 import { NextResponse } from 'next/server'
 
+export const dynamic = 'force-dynamic'
+
 export async function GET(request: Request) {
   try {
     const { search } = new URL(request.url)

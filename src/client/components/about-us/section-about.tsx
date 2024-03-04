@@ -10,8 +10,7 @@ export function SectionAbout() {
   return (
     <>
       <BreadCrumbs name='Sobre nosotros' />
-
-      <section className='grid grid-cols-1 md:grid-cols-2 mt-16 mb-10 lg:mb-0'>
+      <section className='grid grid-cols-1 md:grid-cols-2 mb-10 lg:mb-0'>
         <div className='space-y-2'>
           <p className='text-pretty text-primary/60 uppercase text-center md:text-left opacity-80 font-black animate-pulse '>
             Sobre nosotros

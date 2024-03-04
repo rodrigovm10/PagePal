@@ -1,3 +1,4 @@
+import { BreadCrumbs } from '@/client/components/breadcrumbs'
 import { Section } from '@/client/components/sitemap/section'
 import {
   IconDiamond,
@@ -11,6 +12,7 @@ import {
 export default function SiteMapPage() {
   return (
     <main className='container space-y-5 text-white mt-24 mb-4'>
+      <BreadCrumbs name='Mapa del sitio' />
       <h1 className='text-center font-bold text-3xl text-black dark:text-white'>Mapa del sitio</h1>
       <h2 className='text-center bg-primary rounded-md p-2 text-lg font-bold'>Principal</h2>
       <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5'>

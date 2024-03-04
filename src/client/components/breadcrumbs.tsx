@@ -17,12 +17,14 @@ export function BreadCrumbs({ name }: { name: string }) {
     <nav
       aria-label='breadcrumbs'
       className={cn(
+        'text-black dark:text-white',
         pathname === '/terms-pagepal' || (pathname === '/privacy-pagepal' && ''),
-        pathname === '/membership' && 'mt-4 mb-5',
-        pathname === 'about-us' && 'mt-20'
+        pathname === '/membership' && 'mt-8 -mb-10 md:-mt-2 lg:mb-2',
+        pathname === '/about-us' && 'mt-12 lg:mt-16 lg:mb-0',
+        pathname === '/sitemap' && ''
       )}
     >
-      <ol className='flex '>
+      <ol className='flex flex-col md:flex-row'>
         {breadcrumbs?.map((path, i) => (
           <li key={i}>
             {' '}
@@ -37,7 +39,7 @@ export function BreadCrumbs({ name }: { name: string }) {
               className={cn(
                 pathname === path.href
                   ? 'opacity-80 hover:opacity-80 cursor-auto'
-                  : 'underline opacity-80 hover:opacity-100 hover:text-primary'
+                  : 'underline opacity-80 hover:opacity-100 hover:text-primary text-pretty'
               )}
             >
               {path.name}

@@ -18,6 +18,7 @@ export function BreadCrumbs({ name }: { name: string }) {
       aria-label='breadcrumbs'
       className={cn(
         'text-black dark:text-white',
+        pathname === '/' && 'hidden',
         pathname === '/terms-pagepal' || (pathname === '/privacy-pagepal' && ''),
         pathname === '/membership' && 'mt-8 -mb-10 md:-mt-2 lg:mb-2',
         pathname === '/about-us' && 'mt-12 lg:mt-16 lg:mb-0',

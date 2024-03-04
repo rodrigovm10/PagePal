@@ -1,11 +1,12 @@
 import { BreadCrumbs } from '@/client/components/breadcrumbs'
 import { Section } from '@/client/components/sitemap/section'
 import {
-  IconDiamond,
+  IconHome,
   IconUser,
   IconLogin2,
-  IconLockSquare,
   IconShield,
+  IconDiamond,
+  IconLockSquare,
   IconBrandFacebook
 } from '@tabler/icons-react'
 
@@ -16,6 +17,12 @@ export default function SiteMapPage() {
       <h1 className='text-center font-bold text-3xl text-black dark:text-white'>Mapa del sitio</h1>
       <h2 className='text-center bg-primary rounded-md p-2 text-lg font-bold'>Principal</h2>
       <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5'>
+        <Section
+          href='/'
+          icon={<IconHome />}
+          title='Inicio'
+          description='Página de incio de PagePal'
+        />
         <Section
           href='/about-us'
           icon={<IconUser />}

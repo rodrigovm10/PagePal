@@ -23,8 +23,6 @@ export const sendPasswordResetEmail = async ({
 }) => {
   const resetLink = `${DOMAIN}/auth/new-password?token=${token}`
 
-  console.log(DOMAIN)
-  console.log('enviado')
   await resend.emails.send({
     from: 'PagePal <no-reply@pagepal.site>',
     to: email,

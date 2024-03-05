@@ -27,12 +27,10 @@ export const useBreadcrumbsStore = create<BreadcrumbsStore>((set, get) => ({
     set(state => ({ breadcrumbs: [...state.breadcrumbs, breadcrumb] }))
   },
   removeRoute: ({ href }: { href: string }) => {
-    console.log(href)
     set(state => ({
       breadcrumbs: state.breadcrumbs.filter(item => item.href !== href)
     }))
 
     const { breadcrumbs } = get()
-    console.log(breadcrumbs)
   }
 }))

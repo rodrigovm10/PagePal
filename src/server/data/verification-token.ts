@@ -6,8 +6,6 @@ export const getVerificationTokenByToken = async ({ token }: { token: string }) 
       where: { token }
     })
 
-    console.log(token)
-
     return verificationToken
   } catch (error) {
     return null

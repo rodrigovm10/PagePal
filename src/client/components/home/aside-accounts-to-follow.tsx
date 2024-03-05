@@ -16,8 +16,8 @@ interface AsideProps {
 
 export function AsideAccountsToFollow({ categories }: AsideProps) {
   return (
-    <aside className='max-w-full w-72'>
-      <div className='sticky top-20'>
+    <aside className='max-w-full w-72 order-1 lg:order-2'>
+      <div className='lg:sticky lg:top-20'>
         <h2 className='text-sm font-medium mt-10 mb-4'>Algunos temas que pueden interesarte</h2>
         <article className='space-y-5'>
           <section className='space-x-4'>

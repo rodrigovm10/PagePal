@@ -3,7 +3,7 @@ import { BreadCrumbs } from '@/client/components/breadcrumbs'
 export default function PrivacyPage() {
   return (
     <main className='container mt-24 text-justify text-pretty'>
-      <BreadCrumbs name='Politcas de privacidad' />
+      <BreadCrumbs name='Políticas de privacidad' />
       <header className='bg-primary py-4 text-center text-white '>
         <h1 className='text-2xl font-bold'>Políticas de Privacidad</h1>
         <p className='text-sm'>Última actualización: 16 de febrero de 2024</p>

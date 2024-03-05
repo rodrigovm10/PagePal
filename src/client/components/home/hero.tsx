@@ -1,8 +1,10 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import { Suspense } from 'react'
 
 import { TextWavy } from '../text-wavy'
 import hero from '@public/assets/hero.webp'
+import { HeroImageSkeleton } from '../skeletons/hero-image'
 
 export function Hero() {
   return (
@@ -47,13 +49,15 @@ export function Hero() {
         </Link>
       </div>
       <div>
-        <Image
-          width={500}
-          height={500}
-          src={hero}
-          className='hidden lg:block'
-          alt='hero'
-        />
+        <Suspense fallback={<HeroImageSkeleton />}>
+          <Image
+            width={500}
+            height={500}
+            src={hero}
+            className='hidden lg:block'
+            alt='hero'
+          />
+        </Suspense>
       </div>
     </section>
   )

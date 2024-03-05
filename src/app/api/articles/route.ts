@@ -6,17 +6,17 @@ export const dynamic = 'force-dynamic'
 export async function GET(request: Request) {
   try {
     const { search } = new URL(request.url)
-    const asa = search.split('=')[1].toLowerCase()
+    const param = search.split('=')[1].toLowerCase()
 
-    if (asa === 'undefined') {
+    if (param === 'undefined') {
       return NextResponse.json(articles)
     }
 
     const newArticles = articles.filter(
       article =>
-        article.categories.toLowerCase().includes(asa) ||
-        article.content.toLowerCase().includes(asa) ||
-        article.title.toLowerCase().includes(asa)
+        article.categories.toLowerCase().includes(param) ||
+        article.content.toLowerCase().includes(param) ||
+        article.title.toLowerCase().includes(param)
     )
 
     return NextResponse.json(newArticles)

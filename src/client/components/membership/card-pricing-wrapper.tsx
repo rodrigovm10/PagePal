@@ -46,7 +46,7 @@ export function CardPricingWrapper({
           <Button
             className={cn(
               'dark:text-white w-full hover:-translate-y-2 transition-all ',
-              showPopular && 'dark:text-dark dark:bg-white'
+              showPopular && 'dark:text-black dark:bg-white'
             )}
           >
             {textButton}

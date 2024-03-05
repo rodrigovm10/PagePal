@@ -1,10 +1,12 @@
 'use client'
 
 import Image from 'next/image'
+import { Suspense } from 'react'
 
 import about from '@public/assets/about.webp'
 import { TextWavy } from '@/client/components/text-wavy'
 import { BreadCrumbs } from '@/client/components/breadcrumbs'
+import { AboutUsImageSkeleton } from '../skeletons/about-us-image-skeleton'
 
 export function SectionAbout() {
   return (
@@ -31,14 +33,15 @@ export function SectionAbout() {
             colaborativo y te ayuda a encontrar la audiencia adecuada para lo que quieras expresar.
           </p>
         </div>
-
-        <Image
-          className='max-w-full size-[350px] self-end justify-self-center lg:size-[450px] lg:justify-self-end drop-shadow-xl hover:animate-wiggle hover:animate-infinite hover:animate-ease-in-out'
-          src={about}
-          width={500}
-          height={500}
-          alt='about image'
-        />
+        <Suspense fallback={<AboutUsImageSkeleton />}>
+          <Image
+            className='max-w-full size-[350px] self-end justify-self-center lg:size-[450px] lg:justify-self-end drop-shadow-xl hover:animate-wiggle hover:animate-infinite hover:animate-ease-in-out'
+            src={about}
+            width={500}
+            height={500}
+            alt='about image'
+          />
+        </Suspense>
       </section>
     </>
   )

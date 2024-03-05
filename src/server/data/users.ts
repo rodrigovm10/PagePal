@@ -17,8 +17,6 @@ export const followUser = async ({ id }: { id: string }) => {
   try {
     const response = await axios.post(`${domain}api/users/follow`, { id })
     const user = response.data
-
-    console.log(user)
   } catch (error) {
     console.log('Error al seguir al usuario', error)
   }

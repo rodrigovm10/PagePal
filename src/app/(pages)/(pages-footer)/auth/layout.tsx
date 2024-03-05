@@ -1,7 +1,9 @@
 import Image from 'next/image'
+import { Suspense } from 'react'
 
 import loginImg from '@public/assets/login-img.webp'
 import { Card, CardContent } from '@client/components/ui/card'
+import { FormsImageSkeleton } from '@/client/components/skeletons/forms-image-skeleton'
 
 export default async function AuthLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -12,11 +14,13 @@ export default async function AuthLayout({ children }: { children: React.ReactNo
       >
         <CardContent className='flex p-5 lg:p-20 gap-x-10'>
           {children}
-          <Image
-            className='hidden mx-auto my-auto lg:size-[500px] lg:block '
-            src={loginImg}
-            alt='imagen de login'
-          />
+          <Suspense fallback={<FormsImageSkeleton />}>
+            <Image
+              className='hidden mx-auto my-auto lg:size-[500px] lg:block '
+              src={loginImg}
+              alt='imagen de login'
+            />
+          </Suspense>
         </CardContent>
       </Card>
     </main>

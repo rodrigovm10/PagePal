@@ -21,7 +21,7 @@ export function AsideAccountsToFollow({ categories }: AsideProps) {
         <h2 className='text-sm font-medium mt-10 mb-4'>Algunos temas que pueden interesarte</h2>
         <article className='space-y-5'>
           <section className='space-x-4'>
-            <section className='flex justify-center'>
+            <section className='flex gap-y-2 gap-x-1 flex-wrap items-start'>
               {categories?.map((category: Category) => (
                 <Link
                   href={`/category/${category.name}`}

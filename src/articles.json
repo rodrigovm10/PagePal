@@ -6,7 +6,9 @@
     "isPremium": "false",
     "publishDate": "2021-01-05",
     "content": "In this article, we will introduce the basics of React.",
-    "categories": "react"
+    "categories": ["react"],
+    "likes": "52",
+    "comments": "20"
   },
   {
     "id": "2",
@@ -15,7 +17,9 @@
     "isPremium": "false",
     "publishDate": "2021-01-10",
     "content": "Learn the fundamentals of TypeScript in this article.",
-    "categories": "ts"
+    "categories": ["typescript"],
+    "likes": "87",
+    "comments": "12"
   },
   {
     "id": "3",
@@ -24,7 +28,9 @@
     "isPremium": "false",
     "publishDate": "2021-01-15",
     "content": "Discover the best practices for writing JavaScript code.",
-    "categories": "js"
+    "categories": ["javascript"],
+    "likes": "15",
+    "comments": "34"
   },
   {
     "id": "4",
@@ -33,7 +39,9 @@
     "isPremium": "false",
     "publishDate": "2021-01-20",
     "content": "This article will guide you through the basics of Next.js.",
-    "categories": "nextjs"
+    "categories": ["nextjs"],
+    "likes": "43",
+    "comments": "8"
   },
   {
     "id": "5",
@@ -42,7 +50,9 @@
     "isPremium": "false",
     "publishDate": "2021-01-25",
     "content": "Learn the fundamentals of Node.js in this article.",
-    "categories": "nodejs"
+    "categories": ["nodejs"],
+    "likes": "64",
+    "comments": "29"
   },
   {
     "id": "6",
@@ -51,7 +61,9 @@
     "isPremium": "true",
     "publishDate": "2021-02-05",
     "content": "Explore advanced techniques for working with React.",
-    "categories": "react"
+    "categories": ["react"],
+    "likes": "77",
+    "comments": "41"
   },
   {
     "id": "7",
@@ -60,7 +72,9 @@
     "isPremium": "true",
     "publishDate": "2021-02-10",
     "content": "Learn how to use TypeScript in React projects.",
-    "categories": "ts,react"
+    "categories": ["typescript", "react"],
+    "likes": "33",
+    "comments": "15"
   },
   {
     "id": "8",
@@ -69,7 +83,9 @@
     "isPremium": "true",
     "publishDate": "2021-02-15",
     "content": "Discover techniques for optimizing JavaScript performance.",
-    "categories": "js"
+    "categories": ["js"],
+    "likes": "91",
+    "comments": "23"
   },
   {
     "id": "9",
@@ -78,7 +94,9 @@
     "isPremium": "true",
     "publishDate": "2021-02-20",
     "content": "Learn how to implement server-side rendering with Next.js.",
-    "categories": "nextjs"
+    "categories": ["nextjs"],
+    "likes": "50",
+    "comments": "19"
   },
   {
     "id": "10",
@@ -87,7 +105,9 @@
     "isPremium": "true",
     "publishDate": "2021-02-25",
     "content": "Learn how to build RESTful APIs using Node.js.",
-    "categories": "nodejs"
+    "categories": ["nodejs"],
+    "likes": "62",
+    "comments": "27"
   },
   {
     "id": "11",
@@ -96,7 +116,9 @@
     "isPremium": "false",
     "publishDate": "2021-03-05",
     "content": "Dive deep into React hooks and their usage.",
-    "categories": "react"
+    "categories": ["react"],
+    "likes": "39",
+    "comments": "9"
   },
   {
     "id": "12",
@@ -105,7 +127,9 @@
     "isPremium": "false",
     "publishDate": "2021-03-10",
     "content": "Explore advanced techniques for working with TypeScript.",
-    "categories": "ts"
+    "categories": ["typescript"],
+    "likes": "81",
+    "comments": "35"
   },
   {
     "id": "13",
@@ -114,7 +138,9 @@
     "isPremium": "false",
     "publishDate": "2021-03-15",
     "content": "Learn about various design patterns in JavaScript.",
-    "categories": "js"
+    "categories": ["javascript"],
+    "likes": "45",
+    "comments": "18"
   },
   {
     "id": "14",
@@ -123,7 +149,9 @@
     "isPremium": "false",
     "publishDate": "2021-03-20",
     "content": "Build serverless applications using Next.js.",
-    "categories": "nextjs"
+    "categories": ["nextjs"],
+    "likes": "73",
+    "comments": "22"
   },
   {
     "id": "15",
@@ -132,7 +160,9 @@
     "isPremium": "false",
     "publishDate": "2021-03-25",
     "content": "Learn how to implement authentication in Node.js applications.",
-    "categories": "nodejs"
+    "categories": ["nodejs"],
+    "likes": "55",
+    "comments": "13"
   },
   {
     "id": "16",
@@ -141,7 +171,9 @@
     "isPremium": "true",
     "publishDate": "2021-04-05",
     "content": "Discover different approaches to testing React components.",
-    "categories": "react"
+    "categories": ["react"],
+    "likes": "28",
+    "comments": "7"
   },
   {
     "id": "17",
@@ -150,7 +182,9 @@
     "isPremium": "true",
     "publishDate": "2021-04-10",
     "content": "Learn how to use TypeScript with Express.js.",
-    "categories": "ts,nodejs"
+    "categories": ["typescript", "nodejs"],
+    "likes": "69",
+    "comments": "30"
   },
   {
     "id": "18",
@@ -159,7 +193,9 @@
     "isPremium": "true",
     "publishDate": "2021-04-15",
     "content": "Explore JavaScript promises and async/await syntax.",
-    "categories": "js"
+    "categories": ["javascript"],
+    "likes": "38",
+    "comments": "11"
   },
   {
     "id": "19",
@@ -168,7 +204,9 @@
     "isPremium": "true",
     "publishDate": "2021-04-20",
     "content": "Learn different methods for deploying Next.js applications.",
-    "categories": "nextjs"
+    "categories": ["nextjs"],
+    "likes": "79",
+    "comments": "25"
   },
   {
     "id": "20",
@@ -177,6 +215,8 @@
     "isPremium": "true",
     "publishDate": "2021-04-25",
     "content": "Learn how to implement real-time communication using Node.js.",
-    "categories": "nodejs"
+    "categories": ["nodejs"],
+    "likes": "59",
+    "comments": "16"
   }
 ]

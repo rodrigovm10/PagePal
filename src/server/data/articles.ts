@@ -17,3 +17,14 @@ export const getArticles = async ({
     console.log(error)
   }
 }
+
+export const getArticleByCategoryName = async ({ name }: { name: string }) => {
+  try {
+    const response = await axios.get(`${domain}api/articles/${name}`)
+    const articles = response.data
+
+    return articles
+  } catch (error) {
+    console.log(error)
+  }
+}

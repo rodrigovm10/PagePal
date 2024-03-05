@@ -1,5 +1,5 @@
-import articles from './../../../articles.json'
 import { NextResponse } from 'next/server'
+import articles from './../../../articles.json'
 
 export const dynamic = 'force-dynamic'
 
@@ -14,7 +14,7 @@ export async function GET(request: Request) {
 
     const newArticles = articles.filter(
       article =>
-        article.categories.toLowerCase().includes(param) ||
+        article.categories.includes(param.toLowerCase()) ||
         article.content.toLowerCase().includes(param) ||
         article.title.toLowerCase().includes(param)
     )

@@ -11,7 +11,7 @@ export function NavBarFooter() {
   return (
     <nav className='flex flex-col lg:flex-row justify-center lg:justify-between items-center lg:items-start px-20 py-3 lg:px-[40px] z-50'>
       <LinkPagepal />
-      <ul className='flex flex-col md:flex-row justify-between gap-x-5 items-center gap-y-5 text-center md:text-left'>
+      <ul className='flex flex-col md:flex-row justify-between gap-x-5 items-center gap-y-5 text-center md:text-center mt-4'>
         {ROUTER_FOOTER.map((link, i) => {
           return (
             <li key={i}>

@@ -34,7 +34,7 @@ export function Aside({ categories }: AsideProps) {
           <Separator />
 
           <section className='hidden lg:block'>
-            <ul className='flex flex-col md:flex-row justify-between gap-x-5 items-center '>
+            <ul className='flex flex-col md:flex-row grow justify-between gap-x-5 items-center'>
               {ROUTER_FOOTER.map((link, i) => {
                 return (
                   <li key={i}>

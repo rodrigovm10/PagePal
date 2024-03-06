@@ -1,5 +1,6 @@
 import type { User } from '@/types/types'
-import { Button } from '@client/components/ui/button'
+
+import { FollowUnfollowUserButton } from '../follow-unfollow-button'
 import { Avatar, AvatarFallback, AvatarImage } from '@client/components/ui/avatar'
 
 export function AccountCard({ user }: { user: User }) {
@@ -12,8 +13,7 @@ export function AccountCard({ user }: { user: User }) {
         </Avatar>
         <p className='font-bold'>{user.name}</p>
       </div>
-
-      <Button variant={'outline'}>Seguir</Button>
+      <FollowUnfollowUserButton typeButton='outline' />
     </section>
   )
 }

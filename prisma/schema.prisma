@@ -22,6 +22,7 @@ model User {
   emailVerified       DateTime?
   password            String?
   image               String?
+  about               String?
   role                UserRole @default(DEFAULT)
 
   

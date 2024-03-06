@@ -21,3 +21,14 @@ export const followUser = async ({ id }: { id: string }) => {
     console.log('Error al seguir al usuario', error)
   }
 }
+
+export const getUserByEmail = async ({ email }: { email: string }) => {
+  try {
+    const response = await axios.get(`${domain}api/users/${email}`)
+    const user = response.data
+
+    return user
+  } catch (error) {
+    console.log('Error al obtener al usuario', error)
+  }
+}

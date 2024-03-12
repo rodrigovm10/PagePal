@@ -20,7 +20,6 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json(category, { status: 200 })
   } catch (error) {
-    console.error('Error al obtener la categoría:', error)
-    throw error
+    return NextResponse.json({ message: '[API_CATEGORY_BY_ID_GET]', error })
   }
 }

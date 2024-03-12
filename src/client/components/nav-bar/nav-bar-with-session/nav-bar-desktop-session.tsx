@@ -17,11 +17,11 @@ export async function NavBarDesktopSession() {
       </div>
       <ul className='flex justify-between gap-x-5 items-center font-thin'>
         <Routes />
-        <li>
-          <AvatarDropDown session={session} />
-        </li>
         <li className='self-start'>
           <ModeToggle />
+        </li>
+        <li>
+          <AvatarDropDown session={session} />
         </li>
       </ul>
     </nav>

@@ -1,5 +1,6 @@
 'use client'
 
+import { toast } from 'sonner'
 import { useRouter } from 'next/navigation'
 
 import { IconDots } from '@tabler/icons-react'
@@ -23,6 +24,7 @@ export function Clipboard() {
         <DropdownMenuItem
           className='cursor-pointer'
           onClick={() => {
+            toast.success('Link del perfil copiado exitosamente!')
             navigator.clipboard.writeText(window.location.href)
           }}
         >

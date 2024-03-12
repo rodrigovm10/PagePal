@@ -1,10 +1,15 @@
 'use client'
 
+import { usePathname } from 'next/navigation'
 import { useSearch } from '@client/hooks/useSearch'
 
 import { Input } from '@client/components/ui/input'
 
 export function SearchArticles() {
+  const pathname = usePathname()
+
+  if (pathname === '/new-story') return
+
   const { searchParams, searchUrl } = useSearch()
 
   const handleSearch = (term: string) => {

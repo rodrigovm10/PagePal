@@ -45,7 +45,6 @@ export async function PUT(request: Request) {
       status: 201
     })
   } catch (error) {
-    console.error(API_ERROR_MESSAGES.FOLLOW_CATEGORY, error)
-    throw error
+    return NextResponse.json({ message: '[API_CATEGORY_UNFOLLOW]', error })
   }
 }

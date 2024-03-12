@@ -25,7 +25,6 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json(categories)
   } catch (error) {
-    console.error('Error al obtener las categorías:', error)
-    throw error
+    return NextResponse.json({ message: '[API_CATEGORY_GET]', error })
   }
 }

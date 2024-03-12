@@ -2,10 +2,12 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { cn } from '@client/libs/utils'
 import { Onest } from 'next/font/google'
-import { NavBar } from '@client/components/nav-bar'
-import { ThemeProvider } from '@client/components/providers/theme-provider'
-import { SessionProvider } from 'next-auth/react'
 import { auth } from '@/server/auth/auth'
+import { SessionProvider } from 'next-auth/react'
+
+import { NavBar } from '@client/components/nav-bar'
+import { Toaster } from '@client/components/ui/sonner'
+import { ThemeProvider } from '@client/components/providers/theme-provider'
 
 const font = Onest({ subsets: ['latin'], weight: ['400', '500', '600', '700'] })
 
@@ -32,6 +34,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <SessionProvider session={session}>
             <NavBar />
             {children}
+            <Toaster className='z-50' />
           </SessionProvider>
         </ThemeProvider>
       </body>

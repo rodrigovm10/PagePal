@@ -56,12 +56,12 @@ model Article {
   id              String @id @default(cuid())
   title           String
   banner          String?
-  isPremium       Boolean
-  publishDate     DateTime
   content         String
-  comments        String[]
-  likes           Int[]
   userId          String 
+  likes           Int[]     @default([])
+  comments        String[]  @default([])
+  publishDate     DateTime  @default(now())
+  isPremium       Boolean?  @default(false)
 
   categories      Category[]
   user   User @relation(fields: [userId], references: [id])

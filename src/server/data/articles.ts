@@ -28,3 +28,11 @@ export const getArticleByCategoryName = async ({ name }: { name: string }) => {
     console.log(error)
   }
 }
+
+export const createArticle = async ({ a }: { a: any }) => {
+  try {
+    const response = await axios.post(`${domain}api/articles/`, a)
+  } catch (error) {
+    console.log(true)
+  }
+}

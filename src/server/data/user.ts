@@ -1,5 +1,4 @@
 import { db } from '@/server/db/db'
-import type { User } from '@/types/types'
 
 export const getUserByEmail = async ({ email }: { email: string | undefined | null }) => {
   try {
@@ -16,11 +15,7 @@ export const getUserByEmail = async ({ email }: { email: string | undefined | nu
   } catch (err) {}
 }
 
-export const getUserById = async ({
-  id
-}: {
-  id: string | undefined
-}): Promise<User | undefined> => {
+export const getUserById = async ({ id }: { id: string | undefined }) => {
   try {
     const user = await db.user.findUnique({
       where: { id },

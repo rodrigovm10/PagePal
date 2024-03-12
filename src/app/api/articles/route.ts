@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server'
 
-import { db } from '@/server/db/db'
 import articles from './../../../articles.json'
 
 export const dynamic = 'force-dynamic'

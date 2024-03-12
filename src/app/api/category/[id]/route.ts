@@ -1,6 +1,8 @@
 import { db } from '@/server/db/db'
 import { NextResponse, type NextRequest } from 'next/server'
 
+export const dynamic = 'force-dynamic'
+
 export async function GET(request: NextRequest) {
   try {
     const { pathname } = request.nextUrl

@@ -5,7 +5,7 @@ import { Button } from '@/client/components/ui/button'
 import { useFollow } from '@/client/hooks/useFollow'
 
 interface FollowButtonParams {
-  user: User | undefined
+  user: any
   category: Category
   totalStories: number
 }

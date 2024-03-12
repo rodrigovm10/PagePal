@@ -30,9 +30,7 @@ export function AvatarDropDown({ session }: { session: Session | null }) {
           <DropdownMenuItem>
             <Link
               className='flex gap-x-2'
-              href={`/@${session?.user.email?.split('@')[0]}?email=${encodeURIComponent(
-                session?.user.email
-              )}`}
+              href={`/@${session?.user.email?.split('@')[0]}?email=${session?.user.email}`}
             >
               <IconUser />
               <span className='self-center'>Perfil</span>

@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { Suspense } from 'react'
 
 import {
@@ -26,23 +27,29 @@ export function ImgsCarousel({ imgSrc }: { imgSrc: string }) {
           <Suspense fallback={<HeroImageSkeleton />}>
             <CarouselContent>
               <CarouselItem className='w-full'>
-                <img
-                  className='h-[250px] w-full'
+                <Image
+                  height={250}
+                  width={250}
                   src={grayDefault.src}
                   alt='Banner por predeterminado'
+                  className='h-[250px] w-full'
                 />
               </CarouselItem>
               <CarouselItem>
-                <img
-                  className='h-[250px] w-full'
+                <Image
+                  height={250}
+                  width={250}
                   src={greenDefault.src}
+                  className='h-[250px] w-full'
                   alt='Banner por predeterminado'
                 />
               </CarouselItem>
               <CarouselItem>
-                <img
-                  className='h-[250px] w-full'
+                <Image
+                  height={250}
+                  width={250}
                   src={blueDefault.src}
+                  className='h-[250px] w-full'
                   alt='Banner por predeterminado'
                 />
               </CarouselItem>

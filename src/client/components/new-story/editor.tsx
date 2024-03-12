@@ -24,7 +24,7 @@ export function Editor() {
 
   return (
     <>
-      <div className='w-full h-96 mb-20'>
+      <div className='w-full h-full mb-8'>
         <div ref={quillRef} />
       </div>
 

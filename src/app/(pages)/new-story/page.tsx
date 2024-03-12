@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default async function WritePage() {
   return (
     <>
-      <main className='container px-20 mt-20'>
+      <main className='px-10 mt-20'>
         <Editor />
       </main>
     </>

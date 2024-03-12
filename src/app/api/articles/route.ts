@@ -27,20 +27,20 @@ export async function GET(request: Request) {
   }
 }
 
-export async function POST(request: Request) {
-  try {
-    const body = await request.json()
-    const response = await db.article.create({
-      data: {
-        title: '',
-        banner: '',
-        categories: [],
-        user: '',
-        userId: '',
-        content: ''
-      }
-    })
-  } catch (error) {
-    console.log(error)
-  }
-}
+// export async function POST(request: Request) {
+//   try {
+//     const body = await request.json()
+//     const response = await db.article.create({
+//       data: {
+//         title: '',
+//         banner: '',
+//         categories: [],
+//         user: '',
+//         userId: '',
+//         content: ''
+//       }
+//     })
+//   } catch (error) {
+//     console.log(error)
+//   }
+// }

@@ -23,6 +23,7 @@ export default async function IdCategoryPage({ params }: { params: { categoryNam
     <main className='my-20 container space-y-4'>
       <header className='text-center space-y-5 mb-4'>
         <h1 className='text-5xl font-bold'>{params.categoryName}</h1>
+        // TODO: Corregir el tipo de user.
         <FollowButton
           user={user}
           category={category}

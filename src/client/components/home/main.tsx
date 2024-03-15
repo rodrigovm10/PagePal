@@ -19,7 +19,6 @@ export async function Main({ categories, search }: MainProps) {
       className='container grid grid-rows-2 lg:grid-rows-1 grid-cols-1 lg:grid-cols-3 gap-x-10 relative h-full mt-20'
       id='start-read'
     >
-      {/* Use media queries to conditionally render Aside */}
       <Suspense
         key={search}
         fallback={<ArticleSkeleton />}

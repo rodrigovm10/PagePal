@@ -12,7 +12,7 @@ export async function ArticlesSections({ search }: { search: string | undefined 
       {articles?.length === 0 && <NoArticles />}
       {search && (
         <p className='text-4xl font-bold'>
-          Resultados para <span className='text-primary'>{search}</span>
+          Resultados para <span className='text-primary text-center'>{search}</span>
         </p>
       )}
       {articles?.map((article: Article) => (

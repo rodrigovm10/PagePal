@@ -1,6 +1,5 @@
 import type { Article } from '@/types/types'
 import axios from 'axios'
-import { User } from 'next-auth'
 
 const domain = process.env.NEXT_PUBLIC_APP_URL
 

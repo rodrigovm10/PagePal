@@ -10,8 +10,9 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useSession } from 'next-auth/react'
 import { ROUTER_SESSION } from '@client/constants'
 import { AvatarDropDown } from './avatar-drop-down'
-import { LinkPagepal } from '@client/components/link-pagepal'
 import { ModeToggle } from '@client/components/mode-toggle'
+import { LinkPagepal } from '@client/components/link-pagepal'
+import { SearchArticles } from '@client/components/search-articles'
 
 export function NavBarMobileSession() {
   const pathname = usePathname()
@@ -26,6 +27,7 @@ export function NavBarMobileSession() {
     <div className='lg:hidden relative'>
       <nav className='flex justify-between px-10 py-3 40px z-50 '>
         <LinkPagepal />
+        <SearchArticles />
         <motion.button onClick={handleClickOpen}>
           {isOpen && <IoClose className='size-8 text-primary/80 cursor-pointer' />}
           {!isOpen && <IoMenu className='size-8 text-primary/80 cursor-pointer' />}

@@ -13,7 +13,7 @@ interface AsideProps {
 
 export function Aside({ categories }: AsideProps) {
   return (
-    <aside className='max-w-full w-auto lg:w-72 mx-auto order-1 lg:order-2 -mt-10'>
+    <aside className='max-w-full w-auto lg:w-72 mx-auto order-1 lg:order-2 -mt-10 mb-20'>
       <div className='lg:sticky lg:top-20'>
         <h2 className='text-lg lg:text-sm font-medium text-center lg:text-left mt-10 mb-4'>
           Algunos temas que pueden interesarte

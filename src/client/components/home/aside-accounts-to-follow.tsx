@@ -16,25 +16,25 @@ interface AsideProps {
 
 export function AsideAccountsToFollow({ categories }: AsideProps) {
   return (
-    <aside className='max-w-full w-72 order-1 lg:order-2'>
+    <aside className='max-w-full w-auto lg:w-72 mx-auto order-1 lg:order-2 -mt-10 md:mx-auto lg:mx-0'>
       <div className='lg:sticky lg:top-20'>
-        <h2 className='text-sm font-medium mt-10 mb-4'>Algunos temas que pueden interesarte</h2>
+        <h2 className='text-lg lg:text-sm font-medium text-center lg:text-left mt-10 mb-4'>
+          Algunos temas que pueden interesarte
+        </h2>
         <article className='space-y-5'>
-          <section className='space-x-4'>
-            <section className='flex gap-y-2 gap-x-1 flex-wrap items-start'>
-              {categories?.map((category: Category) => (
-                <Link
-                  href={`/category/${category.name}`}
-                  key={category.id}
-                  scroll
-                  className={badgeVariants({ variant: 'default' })}
-                >
-                  {category.name}
-                </Link>
-              ))}
-            </section>
+          <section className='flex justify-center flex-wrap'>
+            {categories?.map((category: Category) => (
+              <Link
+                href={`/category/${category.name}`}
+                key={category.id}
+                scroll
+                className={badgeVariants({ variant: 'default' })}
+              >
+                {category.name}
+              </Link>
+            ))}
           </section>
-          <Separator />
+          <Separator className='hidden lg:block' />
           <Suspense fallback={<SkeletonAside />}>
             <AccountsToFollow />
           </Suspense>

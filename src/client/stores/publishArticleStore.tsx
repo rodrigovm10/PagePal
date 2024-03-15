@@ -2,6 +2,7 @@ import { create } from 'zustand'
 
 interface CreateArticleProps {
   content?: string
+  html?: string
   banner?: any
 }
 
@@ -9,7 +10,8 @@ export interface ArticleStore {
   articleContent: string
   banner: any
   categories: string[]
-  createArticle: ({ content, banner }: CreateArticleProps) => void
+  html: string
+  createArticle: ({ content, banner, html }: CreateArticleProps) => void
   addCategory: ({ category }: { category: string }) => void
   removeCategory: ({ category }: { category: string }) => void
 }
@@ -18,10 +20,12 @@ export const useArticleStore = create<ArticleStore>((set, get) => ({
   articleContent: '',
   banner: '',
   categories: [],
-  createArticle: ({ content, banner }: CreateArticleProps) => {
+  html: '',
+  createArticle: ({ content, banner, html }: CreateArticleProps) => {
     if (content) {
       set({
-        articleContent: content
+        articleContent: content,
+        html
       })
     }
 

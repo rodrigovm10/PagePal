@@ -12,8 +12,12 @@ import grayDefault from '@/../public/assets/gris-default.webp'
 import blueDefault from '@/../public/assets/azul-default.webp'
 import greenDefault from '@/../public/assets/verde-default.webp'
 import { HeroImageSkeleton } from '../skeletons/hero-image'
+import { useArticleStore } from '@/client/stores/publishArticleStore'
 
 export function ImgsCarousel({ imgSrc }: { imgSrc: string }) {
+  const articleContent = useArticleStore(state => state.articleContent)
+  //TODO: Change banner content2
+
   return (
     <>
       {imgSrc && (

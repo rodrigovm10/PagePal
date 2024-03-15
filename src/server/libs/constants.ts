@@ -29,3 +29,13 @@ export const API_ERROR_MESSAGES = {
   FOLLOW_CATEGORY: 'Error al seguir la categoría:',
   UNFOLLOW_CATEGORY: 'Error al dejar de seguir la categoría:'
 }
+
+export const CREATE_ARTICLE_SCHEMA_MESSAGES = {
+  TITLE_REQUIRED: 'Article title is required',
+  DESCRIPTION_REQUIRED: 'Article description is requried',
+  CONTENT_REQUIRED: 'Article content is required',
+  CATEGORIES_REQUIRED: 'Article categories is required',
+  CATEGORIES_MIN_LENGTH: 'Categories must have at least 1 category',
+  CATEGORIES_MAX_LENGTH: 'Categories must contain 5 categories',
+  USER_ID_REQUIRED: 'User ID is required'
+}

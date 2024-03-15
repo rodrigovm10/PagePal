@@ -2,6 +2,7 @@
 
 import { IconX } from '@tabler/icons-react'
 
+import { createArticle } from '@/server/data/articles'
 import {
   Dialog,
   DialogContent,
@@ -17,13 +18,17 @@ import { Button } from '@/client/components/ui/button'
 import { useArticleStore } from '@/client/stores/publishArticleStore'
 import { SelectCategory } from '@/client/components/new-story/select-category'
 import { ImgsCarousel } from './imgs-carousel'
+import { useSession } from 'next-auth/react'
 
 export function PublishArticle({ onClick }: { onClick: any }) {
-  const { articleContent, banner, categories, removeCategory } = useArticleStore(state => state)
+  const { articleContent, banner, categories, removeCategory, html } = useArticleStore(
+    state => state
+  )
+  const { data } = useSession()
 
   const title = articleContent?.split('\n')[0]
   const description = articleContent?.split('\n')[1]
-  let imgSrc
+  let imgSrc = ''
   if (banner && banner.length > 0) {
     imgSrc = banner[0]?.src
   }
@@ -42,7 +47,6 @@ export function PublishArticle({ onClick }: { onClick: any }) {
           como lo es la página de inicio o en tu perfil.
         </DialogDescription>
         <ImgsCarousel imgSrc={imgSrc} />
-
         {!imgSrc && (
           <span className='text-[12px] text-muted-foreground'>
             Esta imagen se seleccionara en caso de no utilizar alguna imagen en tu historia.
@@ -77,7 +81,21 @@ export function PublishArticle({ onClick }: { onClick: any }) {
           ))}
         </div>
         <DialogFooter>
-          <Button disabled={title && description ? false : true}>Publicar ahora</Button>
+          <Button
+            disabled={categories.length !== 0 && title && description ? false : true}
+            onClick={() => {
+              createArticle({
+                title,
+                banner: imgSrc,
+                content: html,
+                description,
+                categories,
+                userId: data?.user.id
+              })
+            }}
+          >
+            Publicar ahora
+          </Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>

@@ -3,7 +3,6 @@ import { NextResponse } from 'next/server'
 import { getUserByEmail } from '@/server/data/user'
 import { getCategory } from '@/server/data/category'
 import { followAndUnfollowCategorySchema } from '@/server/schemas'
-import { API_ERROR_MESSAGES } from '@/server/libs/constants'
 
 export async function PUT(request: Request) {
   try {

@@ -19,12 +19,17 @@ export function Editor() {
   })
 
   const handleClick = () => {
-    createArticle({ content: quill?.getText(), banner: quill?.root.getElementsByTagName('img') })
+    createArticle({
+      content: quill?.getText(),
+      html: quill?.root.innerHTML,
+      banner: quill?.root.getElementsByTagName('img')
+    })
+    console.log()
   }
 
   return (
     <>
-      <div className='w-full h-full mb-8'>
+      <div className='w-full h-full text-black dark:text-white mb-8'>
         <div ref={quillRef} />
       </div>
 

@@ -1,5 +1,6 @@
 import type { Article } from '@/types/types'
 import axios from 'axios'
+import { User } from 'next-auth'
 
 const domain = process.env.NEXT_PUBLIC_APP_URL
 
@@ -29,9 +30,33 @@ export const getArticleByCategoryName = async ({ name }: { name: string }) => {
   }
 }
 
-export const createArticle = async ({ a }: { a: any }) => {
+interface createArticleProps {
+  title: string
+  banner?: string
+  content: string
+  description: string
+  categories: string[]
+  userId: string | undefined
+}
+
+export const createArticle = async ({
+  title,
+  banner,
+  description,
+  content,
+  categories,
+  userId
+}: createArticleProps) => {
   try {
-    const response = await axios.post(`${domain}api/articles/`, a)
+    const response = await axios.post(`${domain}api/articles`, {
+      title,
+      banner,
+      description,
+      categories,
+      userId,
+      content
+    })
+    console.log(response.data)
   } catch (error) {
     console.log(true)
   }

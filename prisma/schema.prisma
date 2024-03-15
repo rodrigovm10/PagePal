@@ -58,6 +58,7 @@ model Article {
   banner          String?
   content         String
   userId          String 
+  description     String
   likes           Int[]     @default([])
   comments        String[]  @default([])
   publishDate     DateTime  @default(now())
